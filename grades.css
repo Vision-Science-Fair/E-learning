@@ -177,6 +177,28 @@ nav a {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
+}
+.grade-9-icon{
+    width: 55px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+    margin-bottom: 1px;
+    margin-top: 40px;
+}
+.grade-9-description{
+   margin-top: 0px;
+   font-size: 17px;
+   font-weight: 300;
+}
+.grade-9-title{
+   font-size: 26px;
+   margin-top: 0px;
+   font-weight: 500;
+   margin-bottom: 3px;
 }
 .grade-9:hover{
     transform: scale(1.06);
@@ -197,6 +219,27 @@ nav a {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
+}
+.grade-10-icon{
+    width: 50px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+    margin-bottom: 4px;
+}
+.grade-10-title{
+   font-size: 26px;
+   margin-top: 0px;
+   font-weight: 500;
+   margin-bottom: 3px;
+}
+.grade-10-description{
+   margin-top: 0px;
+   font-size: 17px;
+   font-weight: 300;
 }
 .grade-10:hover{
     transform: scale(1.06);
@@ -209,6 +252,27 @@ nav a {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
+}
+.grade-11-icon{
+    width: 50px;
+    height: 55px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+    margin-bottom: 4px;
+}
+.grade-11-title{
+   font-size: 26px;
+   margin-top: 0px;
+   font-weight: 500;
+   margin-bottom: 3px;
+}
+.grade-11-description{
+   margin-top: 0px;
+   font-size: 17px;
+   font-weight: 300;
 }
 .grade-11:hover{
     transform: scale(1.06);
@@ -221,6 +285,28 @@ nav a {
     border-radius: 10px;
     cursor: pointer;
     transition: 0.3s;
+    text-align: center;
+}
+.grade-12-icon{
+    width: 62px;
+    height: 62px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2.5rem auto;
+    margin-bottom: 4px;
+    margin-top: 33px;
+}
+.grade-12-title{
+   font-size: 26px;
+   margin-top: 0px;
+   font-weight: 500;
+   margin-bottom: 3px;
+}
+.grade-12-description{
+   margin-top: 0px;
+   font-size: 17px;
+   font-weight: 300;
 }
 .grade-12:hover{
     transform: scale(1.06);
