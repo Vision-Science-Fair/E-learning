@@ -1,0 +1,98 @@
+/* Simple, human-friendly sign-up styles */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body { height: 100%; }
+
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: linear-gradient(180deg, #2b2d2e 0%, #1e1f20 100%);
+  color: #eef8fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+
+#division {
+  width: 360px;
+  max-width: 96%;
+  background: #171717;
+  padding: 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+  border: 1px solid rgba(255,255,255,0.04);
+}
+
+
+#division h2 {
+  text-align: center;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #aeeffd;
+}
+
+
+#division form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+#division label {
+  font-size: 0.95rem;
+  color: #dceff1;
+  margin-top: 6px;
+}
+
+#division input[type="text"],
+#division input[type="email"],
+#division input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #333;
+  background: #101010;
+  color: #eafcff;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+#division input::placeholder {
+  color: #8eaeb3;
+}
+#division input:focus {
+  border-color: #21daff;
+  box-shadow: 0 6px 18px rgba(33,218,255,0.06);
+}
+#division button[type="submit"] {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  background: linear-gradient(90deg, #21daff, #7ef2d8);
+  color: #071217;
+  font-size: 1rem;
+}
+
+#division p {
+  margin-top: 12px;
+  text-align: center;
+  color: #cfeff6;
+  font-size: 0.95rem;
+}
+
+#division p a {
+  color: #21daff;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+@media (max-width: 420px) {
+  #division { padding: 16px; }
+  #division h2 { font-size: 1.1rem; }
+  #division input, #division button { padding: 9px; }
+}

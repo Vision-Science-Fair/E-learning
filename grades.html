@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnNest</title>
+    <link rel="stylesheet" href="grades.css">
+    <link rel="icon" href="img/i.png" type="image/png">
+</head>
+<body>
+    <nav class="nav">
+        <a href="home.html" class="active">Home</a>
+        <a href="grades.html">Grades</a>
+        <a href="#">Subjects</a>
+        <a href="#">Videos</a>
+        <a href="#">Books</a>
+        <a href="#">About</a>
+    </nav>
+    <div class="log">
+      <a href="signUp.html">Sign up</a>
+    </div>
+    <div class="title">
+        <h1 class="heading">Choose Your Grade</h1>
+    </div>
+    <div class="search-container">
+    <input type="text" id="searchInput" placeholder="Search...">
+    <button onclick="searchGrades()">Search</button>
+</div>
+<div id="searchResults"></div>
+    <div class="division-1">
+        <div class="grade-7">
+            <img class="grade-7-icon" src="img/grade-7-icon.png">
+            <p class="grade-7-title">Grade 7</p>
+            <p class="grade-7-description">View Subjects</p>
+        </div>
+        <div class="grade-8">
+            <img class="grade-8-icon" src="img/grade-8-icon.png">
+            <p class="grade-8-title">Grade 9</p>
+            <p class="grade-8-description">View Subjects</p>
+        </div>
+        <div class="grade-9"></div>
+    </div>
+    <div class="division-2">
+        <div class="grade-10"></div>
+        <div class="grade-11"></div>
+        <div class="grade-12"></div>
+    </div>
+<script src="grades.js"></script>
+</body>
+</html>
