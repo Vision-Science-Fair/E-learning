@@ -62,8 +62,8 @@ nav.nav {
     max-width: 900px;
     flex-wrap: wrap;
     background: linear-gradient(40deg, #00d0ffaf, #c7d8db);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    background-clip: transparent;
 }
 
 .title {
