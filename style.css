@@ -63,7 +63,10 @@ nav.nav {
     flex-wrap: wrap;
     background: linear-gradient(40deg, #00d0ffaf, #c7d8db);
     background-clip: text;
-    background-clip: transparent;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+
 }
 
 .title {
@@ -79,8 +82,11 @@ nav.nav {
     max-width: 900px;
     flex-wrap: wrap;
     background: linear-gradient(50deg, #00d0ff, #d8edf2);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text; /* for Chrome, Safari, Edge */
+    color: transparent;
+    -webkit-text-fill-color: transparent; /* required for WebKit browsers */
+
 }
 /* LOG IN LINK */
 .log {
