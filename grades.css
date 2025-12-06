@@ -6,6 +6,8 @@ body {
     min-height: 100vh;
     position: relative;
 }
+
+/* Navigation */
 nav.nav {
     background: rgba(30, 30, 30, 0.95);
     display: flex;
@@ -19,6 +21,7 @@ nav.nav {
     width: 92%;
     max-width: 750px;
 }
+
 nav a {
     text-decoration: none;
     color: #f5f5f5;
@@ -34,34 +37,41 @@ nav a {
     color: #232526;
     box-shadow: 0 2px 8px rgba(33,218,255,0.15);
 }
-.log{
-  justify-content: right;
-  text-align: center;
-  margin-right: 20px;
-  display: inline;
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  font-weight: 500;
-  font-size: 1.08rem; 
+
+/* Log In / Sign Up */
+.log {
+    text-align: center;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-weight: 500;
+    font-size: 1.08rem; 
 }   
-.log a{
-  text-decoration: none;
-  padding: 0.6rem 1.2rem;
-  color: #21daff;                     
-  background: rgba(33, 218, 255, 0.12);
-  border-radius: 10px;
-  font-weight: 600;
-  text-decoration: none;
-  transition: 0.25s ease;
+
+.log a {
+    text-decoration: none;
+    padding: 0.6rem 1.2rem;
+    color: #21daff;                     
+    background: rgba(33, 218, 255, 0.12);
+    border-radius: 10px;
+    font-weight: 600;
+    transition: 0.25s ease;
 } 
-.title{
+
+.log a:hover {
+    background: rgba(33, 218, 255, 0.2);
+}
+
+/* Title */
+.title {
     text-align: center;
 }
-.heading{
+.heading {
     font-size: 44px;
     font-weight: 500;
 }
+
+/* Search */
 .search-container {
     width: 100%;
     display: flex;
@@ -94,124 +104,23 @@ nav a {
 .search-container button:hover {
     background-color: rgba(33, 218, 255, 0.2);
 }
-.division-1{
+
+/* Divisions */
+.division-1, .division-2 {
+    display: flex;
     justify-content: center;
     align-items: center;
-    margin: 2.4rem auto;
-    display: flex;
     gap: 22px;
-    margin-bottom: 17px;
-}
-.grade-7{
-    background-color: rgba(30, 30, 30, 0.95);
-    color: #f5f5f5;
-    width: 220px;
-    height: 200px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
-}
-.grade-7-icon{
-    width: 45px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    margin-bottom: 4px;
-}
-.grade-7-title{
-   font-size: 26px;
-   margin-top: 0px;
-   font-weight: 500;
-   margin-bottom: 3px;
-}
-.grade-7-description{
-   margin-top: 0px;
-   font-size: 17px;
-   font-weight: 300;
-}
-.grade-7:hover{
-    transform: scale(1.06);
-}
-.grade-8{
-    background-color: rgba(30, 30, 30, 0.95);
-    color: #f5f5f5;
-    width: 220px;
-    height: 200px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
-}
-.grade-8-icon{
-    width: 75px;
-    height: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    margin-bottom: 1px;
-    margin-top: 20px;
-}
-.grade-8-description{
-   margin-top: 0px;
-   font-size: 17px;
-   font-weight: 300;
-}
-.grade-8-title{
-   font-size: 26px;
-   margin-top: 0px;
-   font-weight: 500;
-   margin-bottom: 3px;
-}
-.grade-8:hover{
-    transform: scale(1.06);
-}
-.grade-9{
-    background-color: rgba(30, 30, 30, 0.95);
-    color: #f5f5f5;
-    width: 220px;
-    height: 200px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
-}
-.grade-9-icon{
-    width: 55px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    margin-bottom: 1px;
-    margin-top: 40px;
-}
-.grade-9-description{
-   margin-top: 0px;
-   font-size: 17px;
-   font-weight: 300;
-}
-.grade-9-title{
-   font-size: 26px;
-   margin-top: 0px;
-   font-weight: 500;
-   margin-bottom: 3px;
-}
-.grade-9:hover{
-    transform: scale(1.06);
-}
-.division-2{
-    justify-content: center;
-    align-items: center;
     margin: 2.4rem auto;
-    display: flex;
-    gap: 22px;
-    margin-top: 17px;
 }
-.grade-10{
+
+/* Make <a> behave like the grade card */
+.division-1 a, .division-2 a {
+    text-decoration: none;
+}
+
+/* Grade Cards */
+.grade-7, .grade-8, .grade-9, .grade-10, .grade-11, .grade-12 {
     background-color: rgba(30, 30, 30, 0.95);
     color: #f5f5f5;
     width: 220px;
@@ -220,94 +129,37 @@ nav a {
     cursor: pointer;
     transition: 0.3s;
     text-align: center;
-}
-.grade-10-icon{
-    width: 50px;
-    height: 55px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    margin-bottom: 4px;
 }
-.grade-10-title{
-   font-size: 26px;
-   margin-top: 0px;
-   font-weight: 500;
-   margin-bottom: 3px;
-}
-.grade-10-description{
-   margin-top: 0px;
-   font-size: 17px;
-   font-weight: 300;
-}
-.grade-10:hover{
+.grade-7:hover, .grade-8:hover, .grade-9:hover, 
+.grade-10:hover, .grade-11:hover, .grade-12:hover {
     transform: scale(1.06);
 }
-.grade-11{
-    background-color: rgba(30, 30, 30, 0.95);
-    color: #f5f5f5;
-    width: 220px;
-    height: 200px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
+
+/* Icons */
+.grade-7-icon { width: 45px; height: 55px; margin: 0 auto 4px; }
+.grade-8-icon { width: 75px; height: 75px; margin: 0px auto 4px;}
+.grade-9-icon { width: 55px; height: 50px; margin: 0px auto 4px; }
+.grade-10-icon { width: 50px; height: 55px; margin: 0 auto 4px; }
+.grade-11-icon { width: 50px; height: 55px; margin: 0 auto 4px; }
+.grade-12-icon { width: 62px; height: 62px; margin: 0px auto 4px; }
+
+/* Titles */
+.grade-7-title, .grade-8-title, .grade-9-title,
+.grade-10-title, .grade-11-title, .grade-12-title {
+    font-size: 26px;
+    font-weight: 500;
+    margin: 0;
+    margin-bottom: 3px;
 }
-.grade-11-icon{
-    width: 50px;
-    height: 55px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    margin-bottom: 4px;
+
+/* Descriptions */
+.grade-7-description, .grade-8-description, .grade-9-description,
+.grade-10-description, .grade-11-description, .grade-12-description {
+    font-size: 17px;
+    font-weight: 300;
+    margin: 0;
 }
-.grade-11-title{
-   font-size: 26px;
-   margin-top: 0px;
-   font-weight: 500;
-   margin-bottom: 3px;
-}
-.grade-11-description{
-   margin-top: 0px;
-   font-size: 17px;
-   font-weight: 300;
-}
-.grade-11:hover{
-    transform: scale(1.06);
-}
-.grade-12{
-    background-color: rgba(30, 30, 30, 0.95);
-    color: #f5f5f5;
-    width: 220px;
-    height: 200px;
-    border-radius: 10px;
-    cursor: pointer;
-    transition: 0.3s;
-    text-align: center;
-}
-.grade-12-icon{
-    width: 62px;
-    height: 62px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 2.5rem auto;
-    margin-bottom: 4px;
-    margin-top: 33px;
-}
-.grade-12-title{
-   font-size: 26px;
-   margin-top: 0px;
-   font-weight: 500;
-   margin-bottom: 3px;
-}
-.grade-12-description{
-   margin-top: 0px;
-   font-size: 17px;
-   font-weight: 300;
-}
-.grade-12:hover{
-    transform: scale(1.06);
-}
+
