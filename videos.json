@@ -1,0 +1,220 @@
+{
+  "english": {
+    "7": [
+      { "title": "English: Grammar Basics (Grade 7)", "url": "https://youtu.be/6LFjVC3cHjI" },
+      { "title": "English: Reading Comprehension (Grade 7)", "url": "#" }
+    ],
+    "8": [
+      { "title": "English: Writing and Composition (Grade 8)", "url": "#" }
+    ],
+    "9": [
+      { "title": "English: Literature Intro (Grade 9)", "url": "#" }
+    ],
+    "10": [
+      { "title": "English: Advanced Grammar (Grade 10)", "url": "#" }
+    ],
+    "11": [
+      { "title": "English: Essay Techniques (Grade 11)", "url": "#" }
+    ],
+    "12": [
+      { "title": "English: Exam Preparation (Grade 12)", "url": "#" }
+    ]
+  },
+  "amharic": {
+    "7": [
+        { "title": "Amharic Basics (Grade 7)", "url": "#" } 
+    ],
+    "8": [ 
+        { "title": "Amharic: Reading (Grade 8)", "url": "#" } 
+    ],
+    "9": [ 
+        { "title": "Amharic: Composition (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Amharic: Grammar (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Amharic: Advanced Topics (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Amharic: Exam Prep (Grade 12)", "url": "#" } 
+    ]
+  },
+  "general-science": {
+    "7": [ 
+        { "title": "General Science: Basics (Grade 7)", "url": "#" } 
+    ],
+    "8": [ 
+        { "title": "General Science: Experiments (Grade 8)", "url": "#" } 
+    ],
+    "9": [ 
+        { "title": "General Science: Concepts (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "General Science: Topics (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "General Science: Review (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "General Science: Advanced (Grade 12)", "url": "#" } 
+    ]
+  },
+  "mathematics": {
+    "7": [ 
+        { "title": "Mathematics: Algebra (Grade 7)", "url": "#" } 
+    ],
+    "8": [ 
+        { "title": "Mathematics: Geometry (Grade 8)", "url": "#" } 
+    ],
+    "9": [ 
+        { "title": "Mathematics: Algebra II (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Mathematics: Trigonometry (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Mathematics: Calculus Intro (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Mathematics: Exam Topics (Grade 12)", "url": "#" } 
+    ]
+  },
+  "citizenship": {
+    "7": [ 
+        { "title": "Citizenship: Rights & Duties (Grade 7)", "url": "#" } 
+    ],
+    "8": [ 
+        { "title": "Citizenship: Community (Grade 8)", "url": "#" } 
+    ],
+    "9": [ 
+        { "title": "Citizenship: Governance (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Citizenship: Law Basics (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Citizenship: Civic Engagement (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Citizenship: Exam Prep (Grade 12)", "url": "#" } 
+    ]
+  },
+  "social-studies": {
+    "7": [ 
+        { "title": "Social Studies: Community (Grade 7)", "url": "#" } 
+    ],
+    "8": [ 
+        { "title": "Social Studies: Culture (Grade 8)", "url": "#" } 
+    ],
+    "9": [ 
+        { "title": "Social Studies: Society (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Social Studies: History (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Social Studies: Topics (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Social Studies: Review (Grade 12)", "url": "#" } 
+    ]
+  },
+  "biology": {
+    "7": [],
+    "8": [],
+    "9": [ 
+        { "title": "Biology: Cell Structure (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Biology: Genetics (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Biology: Human Body (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Biology: Advanced Topics (Grade 12)", "url": "#" } 
+    ]
+  },
+  "chemistry": {
+    "7": [],
+    "8": [],
+    "9": [ 
+        { "title": "Chemistry: Basics (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Chemistry: Reactions (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Chemistry: Stoichiometry (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Chemistry: Organic Intro (Grade 12)", "url": "#" },
+        { "title": "Chemistry: Inorganic Intro (Grade 12)", "url": "#" } 
+    ]
+  },
+  "physics": {
+    "7": [],
+    "8": [],
+    "9": [ 
+        { "title": "Physics: Motion (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Physics: Forces (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Physics: Electricity (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Physics: Waves (Grade 12)", "url": "#" } 
+    ]
+  },
+  "history": {
+    "7": [],
+    "8": [],
+    "9": [ 
+        { "title": "History: Ancient Civilizations (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "History: Medieval Period (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "History: Modern Era (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "History: Exam Review (Grade 12)", "url": "#" } 
+    ]
+  },
+  "geography": {
+    "7": [],
+    "8": [],
+    "9": [ 
+        { "title": "Geography: Maps (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Geography: Landforms (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Geography: Climate (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Geography: Human Geography (Grade 12)", "url": "#" } 
+    ]
+  },
+  "economics": {
+    "7": [],
+    "8": [],
+    "9": [ 
+        { "title": "Economics: Basics (Grade 9)", "url": "#" } 
+    ],
+    "10": [ 
+        { "title": "Economics: Markets (Grade 10)", "url": "#" } 
+    ],
+    "11": [ 
+        { "title": "Economics: Supply & Demand (Grade 11)", "url": "#" } 
+    ],
+    "12": [ 
+        { "title": "Economics: Exam Topics (Grade 12)", "url": "#" } 
+    ]
+  }
+}

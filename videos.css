@@ -1,0 +1,160 @@
+/* ---------- PAGE BASE STYLE ---------- */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: linear-gradient(120deg, #232526 0%, #414345 100%);
+    color: #f5f5f5;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    margin: 0;
+}
+
+/* Container */
+.container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+/* Page Title */
+#page-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 40px;
+    background: linear-gradient(60deg, #00d0ff, #21daff, #00bfff);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Subtitle */
+#subtitle {
+    text-align: center;
+    color: #a0a0a0;
+    margin-bottom: 40px;
+}
+
+/* ---------- GRID LAYOUT ---------- */
+#videos-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+/* ---------- VIDEO CARD ---------- */
+.video-item {
+    background: rgba(30, 30, 30, 0.6);
+    backdrop-filter: blur(12px);
+    padding: 22px;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 191, 255, 0.15);
+    box-shadow: 0 2px 8px rgba(0, 191, 255, 0.15); /* reduced shadow */
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: all 0.3s ease;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+/* Subject-colored left border */
+.subject-english .video-item { border-left: 5px solid #0284c7; }
+.subject-mathematics .video-item { border-left: 5px solid #10b981; }
+.subject-biology .video-item { border-left: 5px solid #22c55e; }
+.subject-chemistry .video-item { border-left: 5px solid #8b5cf6; }
+.subject-physics .video-item { border-left: 5px solid #06b6d4; }
+.subject-history .video-item { border-left: 5px solid #f59e0b; }
+.subject-geography .video-item { border-left: 5px solid #064e3b; }
+.subject-economics .video-item { border-left: 5px solid #7c3aed; }
+.subject-amharic .video-item { border-left: 5px solid #ef4444; }
+.subject-general-science .video-item { border-left: 5px solid #0ea5e9; }
+.subject-social-studies .video-item { border-left: 5px solid #db2777; }
+.subject-citizenship .video-item { border-left: 5px solid #86efac; }
+
+/* Hover effect */
+.video-item:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 4px 12px rgba(0, 191, 255, 0.2); /* subtle hover shadow */
+}
+
+/* Animated gradient overlay on hover */
+.video-item::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background: linear-gradient(120deg, #00d0ff33, #21daff22, #00bfff33);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: 0;
+}
+.video-item:hover::before {
+    opacity: 0.15;
+}
+
+/* Video Title */
+.video-item h3 {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin: 0 0 12px;
+    position: relative;
+    z-index: 1;
+    background: linear-gradient(45deg, #00bfff, #21daff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Video Meta */
+.video-item .meta {
+    font-size: 0.85rem;
+    color: #a0a0a0;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Video Buttons / Links */
+.video-item a {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 14px;
+    font-weight: 600;
+    background: linear-gradient(135deg, #00bfff, #0099cc);
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(0, 191, 255, 0.25); /* subtle shadow */
+    position: relative;
+    z-index: 1;
+}
+
+.video-item a:hover {
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(0, 191, 255, 0.3);
+    background: linear-gradient(135deg, #0099cc, #0077aa);
+}
+
+/* No videos message */
+#no-videos {
+    text-align: center;
+    color: #a0a0a0;
+    margin-top: 3rem;
+}
+#no-videos.hidden { display: none; }
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 500px) {
+    #page-title {
+        font-size: 2rem;
+    }
+    .video-item {
+        width: 90%;
+    }
+}
+

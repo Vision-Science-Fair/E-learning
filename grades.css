@@ -136,6 +136,7 @@ nav a {
 .grade-7:hover, .grade-8:hover, .grade-9:hover, 
 .grade-10:hover, .grade-11:hover, .grade-12:hover {
     transform: scale(1.06);
+    box-shadow: 0 6px 25px rgba(0, 191, 255, 0.3);
 }
 
 /* Icons */
