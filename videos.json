@@ -1,11 +1,15 @@
 {
   "english": {
-    "7": [
-      { "title": "English: Grammar Basics (Grade 7)", "url": "#" },
-      { "title": "English: Reading Comprehension (Grade 7)", "url": "#" }
-    ],
+        "7": [
+            { "title": "English: Grammar Basics", "url": "https://www.youtube.com/watch?v=6LFjVC3cHjI&pp=ygUOZ3JhbW1lciBiYXNpY3M%3D", "youtubeId": "6LFjVC3cHjI"},
+            { "title": "Modal verbs", "url": "https://www.youtube.com/watch?v=36wG9pSYu7Q&pp=ygULbW9kYWwgdmVyYnM%3D", "youtubeId": "36wG9pSYu7Q" },
+            { "title": "Adjectives", "url": "https://www.youtube.com/watch?v=dQRzXZAODEM&pp=ygUWYWRqZWN0aXZlcyBmb3IgZ3JhZGUgNw%3D%3D", "youtubeId": "dQRzXZAODEM" },
+            { "title": "Simple present tense", "url": "https://www.youtube.com/watch?v=nvVdIJ0las0&pp=ygUgc2ltcGxlIHByZXNuZXQgdGVuc2Ugb2ZyIGdyYWRlIDfSBwkJPAoBhyohjO8%3D", "youtubeId": "nvVdIJ0las0" },
+            { "title": "Simple past tense", "url": "https://www.youtube.com/watch?v=MI3S3kdkofo&pp=ygURc2ltcGxlIHBhc3QgdGVuc2U%3D", "youtubeId": "MI3S3kdkofo" },
+            { "title": "Simple future tense", "url": "https://www.youtube.com/watch?v=QXVzmzhxWWc&pp=ygUOZ3JhbW1lciBiYXNpY3M%3D", "youtubeId": "QXVzmzhxWWc" }
+        ],
     "8": [
-      { "title": "English: Writing and Composition (Grade 8)", "url": "#" }
+      { "title": "English: Writing and Composition", "url": "https://www.youtube.com/watch?v=RFwui6V32nc&pp=ygUjd3JpdGluZyBhbmQgY29tcG9zaXRpb24gZm9yIGdyYWRlIDg%3D", "youtubeId": "RFwui6V32nc" }
     ],
     "9": [
       { "title": "English: Literature Intro (Grade 9)", "url": "#" }
@@ -21,7 +25,7 @@
     ]
   },
   "amharic": {
-    "7": [
+    "7": [ 
         { "title": "Amharic Basics (Grade 7)", "url": "#" } 
     ],
     "8": [ 
@@ -62,7 +66,7 @@
   },
   "mathematics": {
     "7": [ 
-        { "title": "Mathematics: Algebra (Grade 7)", "url": "#" } 
+        { "title": "Mathematics: Algebra (Grade 7)", "url": "https://youtu.be/3JZ_D3ELwOQ", "youtubeId": "3JZ_D3ELwOQ" } 
     ],
     "8": [ 
         { "title": "Mathematics: Geometry (Grade 8)", "url": "#" } 
@@ -208,10 +212,10 @@
         { "title": "Economics: Basics (Grade 9)", "url": "#" } 
     ],
     "10": [ 
-        { "title": "Economics: Markets (Grade 10)", "url": "#" } 
+        { "title": "Economics: Markets (Grade 10)", "url": "https://www.youtube.com/watch?v=u1xIZOieOUpp=ygUUbWFya2V0cyBpbiBlY29ub21pY3M%3D" , "youtubeId": "u1xIZOieOUw"  } 
     ],
     "11": [ 
-        { "title": "Economics: Supply & Demand (Grade 11)", "url": "#" } 
+        { "title": "Economics: Supply & Demand (Grade 11)", "url": "https://www.youtube.com/watch?v=u1xIZOieOUw&pp=ygUUbWFya2V0cyBpbiBlY29ub21pY3M%3D" , "youtubeId": "u1xIZOieOUw"} 
     ],
     "12": [ 
         { "title": "Economics: Exam Topics (Grade 12)", "url": "#" } 

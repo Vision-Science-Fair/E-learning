@@ -54,6 +54,22 @@
             return s ? s.toLowerCase().trim().replace(/\s+/g, '-').replace(/[^a-z0-9\-]/g, '') : '';
         }
 
+        // Extract a YouTube ID from many common URL formats
+        function extractYouTubeId(url) {
+            if (!url) return null;
+            const patterns = [
+                /(?:youtube\.com\/watch\?v=)([\w-]+)/i,
+                /(?:youtube\.com\/embed\/)([\w-]+)/i,
+                /(?:youtu\.be\/)([\w-]+)/i,
+                /(?:youtube\.com\/v\/)([\w-]+)/i
+            ];
+            for (const p of patterns) {
+                const m = url.match(p);
+                if (m && m[1]) return m[1];
+            }
+            return null;
+        }
+
         function renderItems(items) {
             videosList.innerHTML = '';
             if (!items || items.length === 0) {
@@ -64,9 +80,36 @@
             items.forEach(v => {
                 const el = document.createElement('div');
                 el.className = 'video-item';
-                const safeUrl = v.url ? v.url : '#';
-                el.innerHTML = `<h3>${v.title}</h3><a href="${safeUrl}" target="_blank" rel="noopener">Watch</a>`;
-                videosList.appendChild(el);
+                const title = v.title || '';
+                const youtubeId = v.youtubeId || extractYouTubeId(v.url);
+                const hasYouTube = !!youtubeId;
+
+                if (hasYouTube) {
+                    const thumb = `https://i.ytimg.com/vi/${youtubeId}/hqdefault.jpg`;
+                    el.innerHTML = `
+                        <h3>${title}</h3>
+                        <div class="meta">${v.description || ''}</div>
+                        <div class="video-thumb" data-id="${youtubeId}" role="button" tabindex="0">
+                            <img src="${thumb}" alt="${title}">
+                            <div class="play-overlay">▶</div>
+                        </div>
+                    `;
+                    videosList.appendChild(el);
+
+                    const thumbEl = el.querySelector('.video-thumb');
+                    thumbEl.addEventListener('click', () => {
+                        const id = thumbEl.dataset.id;
+                        const player = document.createElement('div');
+                        player.className = 'video-player';
+                        player.innerHTML = `<iframe src="https://www.youtube.com/embed/${id}?rel=0&showinfo=0" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
+                        thumbEl.replaceWith(player);
+                    });
+                    thumbEl.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') thumbEl.click(); });
+                } else {
+                    const safeUrl = v.url ? v.url : '#';
+                    el.innerHTML = `<h3>${title}</h3><a href="${safeUrl}" target="_blank" rel="noopener">Watch</a>`;
+                    videosList.appendChild(el);
+                }
             });
         }
 
