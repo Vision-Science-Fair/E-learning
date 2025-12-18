@@ -3,9 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Geography Grade 11</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .container{max-width:980px;margin:2.5rem auto;background: rgba(30,30,30,0.85);padding:28px;border-radius:18px;border: 1px solid rgba(0,191,255,0.06);box-shadow: 0 8px 30px rgba(0,0,0,0.45);color: #f5f5f5}
+        h1{margin:0;font-family: 'Poppins', sans-serif;font-size:28px;font-weight:700;color: #d8f6ff}
+        .buttons{display:flex;gap:12px;align-items:center}
+        .viewer{margin-top:18px;border-radius:12px;overflow:hidden}
+        iframe{width:100%;height:72vh;min-height:420px;border:0;background:transparent}
+        @media (max-width:640px){.container{margin:18px 12px;padding:18px}h1{font-size:20px}.buttons{flex-direction:column}.button{width:100%}.button.secondary{width:100%}iframe{height:56vh}}
+    </style>
 </head>
 <body>
-    <p>geography grade 11</p>
+
+    <div class="container">
+        <h1>Geography – Grade 11</h1>
+
+        <div class="buttons">
+            <button class="button small" onclick="viewBook()">View Book</button>
+            <button class="button secondary small" onclick="downloadBook()">Download Book</button>
+        </div>
+
+        <iframe id="pdfViewer"></iframe>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        // 🔴 ADD YOUR GOOGLE DRIVE FILE ID BELOW
+        const FILE_ID = "1Gx_TpvzgTsuvtBfmPZTqFEzNtSO02c60";
+
+        function viewBook() {
+            const iframe = document.getElementById("pdfViewer");
+            iframe.src = `https://drive.google.com/file/d/${FILE_ID}/preview`;
+        }
+
+        function downloadBook() {
+            window.open(`https://drive.google.com/uc?export=download&id=${FILE_ID}`,"_blank");
+        }
+    </script>
 </body>
 </html>
