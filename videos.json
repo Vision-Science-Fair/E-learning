@@ -8,12 +8,21 @@
             { "title": "Simple past tense", "url": "https://www.youtube.com/watch?v=MI3S3kdkofo&pp=ygURc2ltcGxlIHBhc3QgdGVuc2U%3D", "youtubeId": "MI3S3kdkofo" },
             { "title": "Simple future tense", "url": "https://www.youtube.com/watch?v=QXVzmzhxWWc&pp=ygUOZ3JhbW1lciBiYXNpY3M%3D", "youtubeId": "QXVzmzhxWWc" }
         ],
-    "8": [
-      { "title": "English: Writing and Composition", "url": "https://www.youtube.com/watch?v=RFwui6V32nc&pp=ygUjd3JpdGluZyBhbmQgY29tcG9zaXRpb24gZm9yIGdyYWRlIDg%3D", "youtubeId": "RFwui6V32nc" }
-    ],
-    "9": [
-      { "title": "English: Literature Intro (Grade 9)", "url": "#" }
-    ],
+ "8": [
+            { "title": "English: Writing and Composition", "url": "https://www.youtube.com/watch?v=RFwui6V32nc", "youtubeId": "RFwui6V32nc" },
+            { "title": "Present continuous tense", "url": "https://www.youtube.com/watch?v=CHCth_sWL1g&pp=ygUYcHJlc2VudCBjb250aW51b3VzIHRlbnNl", "youtubeId": "CHCth_sWL1g" },
+            { "title": "past continuous tense", "url": "https://www.youtube.com/watch?v=6Y5bbgo8-HE&pp=ygUVcGFzdCBjb250aW51b3VzIHRlbnNl", "youtubeId": "6Y5bbgo8-HE" },
+            { "title": "Present perfect tense", "url": "https://www.youtube.com/watch?v=-TsWSxGU5lc&pp=ygUVcHJlc2VudCBwZXJmZWN0IHRuZXNl", "youtubeId": "-TsWSxGU5lc" },
+            { "title": "past perfect tense", "url": "https://www.youtube.com/watch?v=llIOxwc57L0&pp=ygUScGFzdCBwZXJmZWN0IHRlbnNl0gcJCTwKAYcqIYzv", "youtubeId": "llIOxwc57L0" }
+        ],
+        "9": [
+            { "title": "Present perfect continuous tense", "url": "https://www.youtube.com/watch?v=Ttr7DowBUBk&pp=ygUgcHJlc2VudCBwZXJmZWN0IGNvbnRpbnVvdXMgdGVuc2U%3D", "youtubeId": "Ttr7DowBUBk" },
+            { "title": "Past perfect continuous tense", "url": "https://www.youtube.com/watch?v=49PKNkZPrTg&pp=ygUdcGFzdCBwZXJmZWN0IGNvbnRpbnVvdXMgdGVuc2U%3D", "youtubeId": "49PKNkZPrTg" },
+            { "title": "Adverbs", "url": "https://www.youtube.com/watch?v=n0fuame4hSQ&pp=ygUHYWR2ZXJicw%3D%3D", "youtubeId": "n0fuame4hSQ" },
+            { "title": "Adverbial clauses", "url": "https://www.youtube.com/watch?v=ZYd3whIRpik&pp=ygUeYWR2ZXJiaWFsIGNsYXVzZSBvZiBvcHBvc2l0aW9u", "youtubeId": "ZYd3whIRpik" },
+            { "title": "Types of essay", "url": "https://www.youtube.com/watch?v=DwctqoJI1zQ&pp=ygUOdHlwZXMgb2YgZXNzYXk%3D", "youtubeId": "DwctqoJI1zQ" }
+
+        ],
     "10": [
       { "title": "English: Advanced Grammar (Grade 10)", "url": "#" }
     ],
@@ -24,7 +33,7 @@
       { "title": "English: Exam Preparation (Grade 12)", "url": "#" }
     ]
   },
-  
+
   "amharic": {
     "7": [ 
         { "title": "Amharic Basics (Grade 7)", "url": "#" } 
