@@ -6,12 +6,95 @@
     <title>Mathematics Grade 9</title>
     <link rel="stylesheet" href="style.css">
     <style>
-        .container{max-width:980px;margin:2.5rem auto;background: rgba(30,30,30,0.85);padding:28px;border-radius:18px;border: 1px solid rgba(0,191,255,0.06);box-shadow: 0 8px 30px rgba(0,0,0,0.45);color:#f5f5f5}
-        h1{margin:0;font-family:'Poppins',sans-serif;font-size:28px;font-weight:700;color:#d8f6ff}
-        .buttons{display:flex;gap:12px;align-items:center}
-        .viewer{margin-top:18px;border-radius:12px;overflow:hidden}
-        iframe{width:100%;height:72vh;min-height:420px;border:0;background:transparent}
-        @media (max-width:640px){.container{margin:18px 12px;padding:18px}h1{font-size:20px}.buttons{flex-direction:column}.button{width:100%}.button.secondary{width:100%}iframe{height:56vh}}
+        .container{
+            width:470px;
+            margin:2.5rem auto;
+            padding:28px;
+            background: linear-gradient(135deg,rgba(255,255,255,0.10),rgba(12,28,60,0.55));
+            border-radius:18px;
+            border: 1px solid rgba(120,200,255,0.12);
+            box-shadow:0 10px 35px rgba(0,0,0,0.55), inset 0 0 0 1px rgba(255,255,255,0.03);
+            color:#f2f6ff;
+        }
+        h1{
+            margin-bottom:14px;
+            font-family:'Poppins',sans-serif;
+            font-size:28px;
+            font-weight:700;
+            letter-spacing:0.3px;
+            color:#e6f8ff;
+            text-shadow:0 0 12px rgba(0,180,255,0.18);
+        }
+        .buttons{
+            display:flex;
+            gap:14px;
+            margin-top:16px;
+            padding:12px;
+            border-radius:14px;
+
+        }
+        .button-small{
+            flex:1;
+            padding:12px 18px;
+            border-radius:12px;
+            border:1px solid rgba(0,180,255,0.35);
+            background: linear-gradient(135deg, rgba(0,190,255,0.45), rgba(0,120,255,0.75));
+            color:#eaffff;
+            font-weight:600;
+            font-size:14px;
+            cursor:pointer;
+            transition: all 0.25s ease;
+        }
+        .button-small:hover{
+            transform: translateY(-2px);
+        }
+        .button-secondary-small{
+            flex:1;
+            padding:12px 18px;
+            border-radius:12px;
+            border:1px solid rgba(255,255,255,0.18);
+            background: linear-gradient(135deg, rgba(255,255,255,0.14), rgba(255,255,255,0.06));
+            color:#f2f6ff;
+            font-weight:600;
+            font-size:14px;
+            cursor:pointer;
+            transition: all 0.25s ease;
+        }
+        .button-secondary-small:hover{
+            background: linear-gradient(135deg, rgba(255,255,255,0.22), rgba(255,255,255,0.10));
+            transform: translateY(-2px);
+        }
+
+        .viewer{
+            margin-top:18px;
+            border-radius:12px;
+            overflow:hidden}
+        iframe{
+            width:100%;
+            height:72vh;
+            min-height:420px;
+            border:0;
+            background:transparent
+        }
+        @media (max-width:640px){
+            .container{
+                margin:18px 12px;
+                padding:18px
+            }
+            h1{
+                font-size:20px
+            }
+            .buttons{
+                flex-direction:column;
+            }
+            .button-small,
+            .button-secondary-small{
+                width:100%;
+            }
+            iframe{
+                height:56vh
+            }
+        }
     </style>
 </head>
 <body>
@@ -30,8 +113,8 @@
     <div class="container">
         <h1>Mathematics – Grade 9</h1>
         <div class="buttons">
-            <button class="button small" onclick="viewBook()">View Book</button>
-            <button class="button secondary small" onclick="downloadBook()">Download Book</button>
+            <button class="button-small" onclick="viewBook()">View Book</button>
+            <button class="button-secondary-small" onclick="downloadBook()">Download Book</button>
         </div>
         <iframe id="pdfViewer"></iframe>
     </div>
