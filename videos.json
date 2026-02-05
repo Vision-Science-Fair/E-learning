@@ -1,13 +1,13 @@
 {
     "english": {
-                "7": [
-                        { "title": "English: Grammar Basics", "url": "https://www.youtube.com/watch?v=6LFjVC3cHjI", "youtubeId": "6LFjVC3cHjI"},
-                        { "title": "Modal verbs", "url": "https://www.youtube.com/watch?v=36wG9pSYu7Q", "youtubeId": "36wG9pSYu7Q" },
-                        { "title": "Adjectives", "url": "https://www.youtube.com/watch?v=dQRzXZAODEM", "youtubeId": "dQRzXZAODEM" },
-                        { "title": "Simple present tense", "url": "https://www.youtube.com/watch?v=nvVdIJ0las0", "youtubeId": "nvVdIJ0las0" },
-                        { "title": "Simple past tense", "url": "https://www.youtube.com/watch?v=MI3S3kdkofo", "youtubeId": "MI3S3kdkofo" },
-                        { "title": "Simple future tense", "url": "https://www.youtube.com/watch?v=QXVzmzhxWWc", "youtubeId": "QXVzmzhxWWc" }
-                ],
+        "7": [
+            { "title": "English: Grammar Basics", "url": "https://www.youtube.com/watch?v=6LFjVC3cHjI", "youtubeId": "6LFjVC3cHjI"},
+            { "title": "Modal verbs", "url": "https://www.youtube.com/watch?v=36wG9pSYu7Q", "youtubeId": "36wG9pSYu7Q" },
+            { "title": "Adjectives", "url": "https://www.youtube.com/watch?v=dQRzXZAODEM", "youtubeId": "dQRzXZAODEM" },
+            { "title": "Simple present tense", "url": "https://www.youtube.com/watch?v=nvVdIJ0las0", "youtubeId": "nvVdIJ0las0" },
+            { "title": "Simple past tense", "url": "https://www.youtube.com/watch?v=MI3S3kdkofo", "youtubeId": "MI3S3kdkofo" },
+            { "title": "Simple future tense", "url": "https://www.youtube.com/watch?v=QXVzmzhxWWc", "youtubeId": "QXVzmzhxWWc" }
+        ],
         "8": [
             { "title": "English: Writing and Composition", "url": "https://www.youtube.com/watch?v=RFwui6V32nc", "youtubeId": "RFwui6V32nc" },
             { "title": "Present continuous tense", "url": "https://www.youtube.com/watch?v=CHCth_sWL1g&pp=ygUYcHJlc2VudCBjb250aW51b3VzIHRlbnNl", "youtubeId": "CHCth_sWL1g" },
@@ -34,203 +34,212 @@
             { "title": "English: Exam Preparation (Grade 12)", "url": "https://www.youtube.com/watch?v=UgTeX2Tht8Y", "youtubeId": "UgTeX2Tht8Y" }
         ]
     },
-  "amharic": {
-    "7": [ 
-        { "title": "Amharic Basics (Grade 7)", "url": "https://www.youtube.com/watch?v=AyrPCnufTNg", "youtubeId": "AyrPCnufTNg" } 
-    ],
-    "8": [ 
-        { "title": "Amharic: Reading (Grade 8)", "url": "https://www.youtube.com/watch?v=INtTh9Smu4w", "youtubeId": "INtTh9Smu4w" } 
-    ],
-    "9": [ 
-        { "title": "Amharic: Composition (Grade 9)", "url": "https://www.youtube.com/watch?v=sDJ9V2lulLY", "youtubeId": "sDJ9V2lulLY" } 
-    ],
-    "10": [ 
-        { "title": "Amharic: Grammar (Grade 10)", "url": "https://www.youtube.com/watch?v=qdkdIg257Wc", "youtubeId": "qdkdIg257Wc" } 
-    ],
-    "11": [ 
-        { "title": "Amharic: Advanced Topics (Grade 11)", "url": "https://www.youtube.com/watch?v=hrMcm65yPZw", "youtubeId": "hrMcm65yPZw" } 
-    ],
-    "12": [ 
-        { "title": "Amharic: Exam Prep (Grade 12)", "url": "https://www.youtube.com/watch?v=8m1-EnyYSrs", "youtubeId": "8m1-EnyYSrs" } 
-    ]
-  },
-  "general-science": {
-    "7": [ 
-        { "title": "General Science: Basics (Grade 7)", "url": "https://www.youtube.com/watch?v=D2oz1M2lvVY", "youtubeId": "D2oz1M2lvVY" } 
-    ],
-    "8": [ 
-        { "title": "General Science: Experiments (Grade 8)", "url": "https://www.youtube.com/watch?v=g5KMF1yQg3c", "youtubeId": "g5KMF1yQg3c" } 
-    ],
-    "9": [ 
-        { "title": "General Science: Concepts (Grade 9)", "url": "https://www.youtube.com/watch?v=ifRUXB5ymgk", "youtubeId": "ifRUXB5ymgk" } 
-    ],
-    "10": [ 
-        { "title": "General Science: Topics (Grade 10)", "url": "https://www.youtube.com/watch?v=kiTvrVLTXj8", "youtubeId": "kiTvrVLTXj8" } 
-    ],
-    "11": [ 
-        { "title": "General Science: Review (Grade 11)", "url": "https://www.youtube.com/watch?v=vy5K4jfhUHg", "youtubeId": "vy5K4jfhUHg" } 
-    ],
-    "12": [ 
-        { "title": "General Science: Advanced (Grade 12)", "url": "https://www.youtube.com/watch?v=A7XrwQ6jTZs", "youtubeId": "A7XrwQ6jTZs" } 
-    ]
-  },
 
-  
-  "mathematics": {
-    "7": [ 
-        { "title": "Mathematics: Algebra (Grade 7)", "url": "https://youtu.be/3JZ_D3ELwOQ", "youtubeId": "3JZ_D3ELwOQ" } 
-    ],
-    "8": [ 
-        { "title": "Mathematics: Geometry (Grade 8)", "url": "https://www.youtube.com/watch?v=CENc9LBOgkA", "youtubeId": "CENc9LBOgkA" } 
-    ],
-    "9": [ 
-        { "title": "Mathematics: Algebra II (Grade 9)", "url": "https://www.youtube.com/watch?v=JeVSmq1Nrpw", "youtubeId": "JeVSmq1Nrpw" } 
-    ],
-    "10": [ 
-        { "title": "Mathematics: Trigonometry (Grade 10)", "url": "https://www.youtube.com/watch?v=tTomwopxKFE", "youtubeId": "tTomwopxKFE" } 
-    ],
-    "11": [ 
-        { "title": "Mathematics: Calculus Intro (Grade 11)", "url": "https://www.youtube.com/watch?v=1HML7mxCzAs", "youtubeId": "1HML7mxCzAs" } 
-    ],
-    "12": [ 
-        { "title": "Mathematics: Exam Topics (Grade 12)", "url": "https://www.youtube.com/watch?v=3RyL_FqbaX0", "youtubeId": "3RyL_FqbaX0" } 
-    ]
-  },
-  "citizenship": {
-    "7": [ 
-        { "title": "Citizenship: Rights & Duties (Grade 7)", "url": "https://www.youtube.com/watch?v=YIqjytLPM6Y", "youtubeId": "" } 
-    ],
-    "8": [ 
-        { "title": "Citizenship: Community (Grade 8)", "url": "https://www.youtube.com/watch?v=B8l6CccXFfE", "youtubeId": "B8l6CccXFfE" } 
-    ],
-    "9": [ 
-        { "title": "Citizenship: Governance (Grade 9)", "url": "https://www.youtube.com/watch?v=VYxYbt9cFgA", "youtubeId": "VYxYbt9cFgA" } 
-    ],
-    "10": [ 
-        { "title": "Citizenship: Law Basics (Grade 10)", "url": "https://www.youtube.com/watch?v=6WHipujjAKk", "youtubeId": "6WHipujjAKk" } 
-    ],
-    "11": [ 
-        { "title": "Citizenship: Civic Engagement (Grade 11)", "url": "https://www.youtube.com/watch?v=UpugWQLonyI", "youtubeId": "UpugWQLonyI" } 
-    ],
-    "12": [ 
-        { "title": "Citizenship: Exam Prep (Grade 12)", "url": "https://www.youtube.com/watch?v=rsfY2aRd7fY", "youtubeId": "rsfY2aRd7fY" } 
-    ]
-  },
-  "social-studies": {
-    "7": [ 
-        { "title": "Social Studies: Community (Grade 7)", "url": "https://www.youtube.com/watch?v=DSG70Cm8TnY", "youtubeId": "DSG70Cm8TnY" } 
-    ],
-    "8": [ 
-        { "title": "Social Studies: Culture (Grade 8)", "url": "https://www.youtube.com/watch?v=jz6WG8G-vgg", "youtubeId": "jz6WG8G-vgg" } 
-    ],
-    "9": [ 
-        { "title": "Social Studies: Society (Grade 9)", "url": "https://www.youtube.com/watch?v=aIs1r0wd3CY", "youtubeId": "aIs1r0wd3CY" } 
-    ],
-    "10": [ 
-        { "title": "Social Studies: History (Grade 10)", "url": "https://www.youtube.com/watch?v=DV7QwyMD_AE", "youtubeId": "DV7QwyMD_AE" } 
-    ],
-    "11": [ 
-        { "title": "Social Studies: Topics (Grade 11)", "url": "https://www.youtube.com/watch?v=YlVTXUr-EfQ", "youtubeId": "YlVTXUr-EfQ" } 
-    ],
-    "12": [ 
-        { "title": "Social Studies: Review (Grade 12)", "url": "https://www.youtube.com/watch?v=_qB4ajftOfo", "youtubeId": "_qB4ajftOfo" } 
-    ]
-  },
-  "biology": {
-    "7": [],
-    "8": [],
-    "9": [ 
-        { "title": "Biology: Cell Structure (Grade 9)", "url": "https://www.youtube.com/watch?v=6v8djXa-IPQ", "youtubeId": "6v8djXa-IPQ" } 
-    ],
-    "10": [ 
-        { "title": "Biology: Genetics (Grade 10)", "url": "https://www.youtube.com/watch?v=HaS0xNcAaWo&list=PLybg94GvOJ9HH3IbmPRCfU4knUiBJPq1Z", "youtubeId": "HaS0xNcAaWo" } 
-    ],
-    "11": [ 
-        { "title": "Biology: Human Body (Grade 11)", "url": "https://www.youtube.com/watch?v=HZGxmeFxtFk", "youtubeId": "HZGxmeFxtFk" } 
-    ],
-    "12": [ 
-        { "title": "Biology: Advanced Topics (Grade 12)", "url": "https://www.youtube.com/watch?v=11-8ecpwOXs", "youtubeId": "11-8ecpwOXs" } 
-    ]
-  },
-  "chemistry": {
-    "7": [],
-    "8": [],
-    "9": [ 
-        { "title": "Chemistry: Basics (Grade 9)", "url": "https://www.youtube.com/watch?v=-KfG8kH-r3Y", "youtubeId": "-KfG8kH-r3Y" } 
-    ],
-    "10": [ 
-        { "title": "Chemistry: Reactions (Grade 10)", "url": "https://www.youtube.com/watch?v=vZIsPIv19vw", "youtubeId": "vZIsPIv19vw" } 
-    ],
-    "11": [ 
-        { "title": "Chemistry: Stoichiometry (Grade 11)", "url": "https://www.youtube.com/watch?v=B_ketdzJtY8", "youtubeId": "B_ketdzJtY8" } 
-    ],
-    "12": [ 
-        { "title": "Chemistry: Organic Intro (Grade 12)", "url": "https://www.youtube.com/watch?v=B_ketdzJtY8&pp=ygURb3JnYW5pYyBjaGVtaXN0cnnSBwkJPAoBhyohjO8%3D", "youtubeId": "B_ketdzJtY8" },
-        { "title": "Chemistry: Inorganic Intro (Grade 12)", "url": "https://www.youtube.com/watch?v=9_s5WSR_V8o", "youtubeId": "9_s5WSR_V8o" } 
-    ]
-  },
-  "physics": {
-    "7": [],
-    "8": [],
-    "9": [ 
-        { "title": "Physics: Motion (Grade 9)", "url": "https://www.youtube.com/watch?v=ZAqIoDhornk", "youtubeId": "ZAqIoDhornk" }
-    ],
-    "10": [ 
-        { "title": "Physics: Forces (Grade 10)", "url": "https://www.youtube.com/watch?v=b1t41Q3xRM8" } 
-    ],
-    "11": [ 
-        { "title": "Physics: Electricity (Grade 11)", "url": "https://www.youtube.com/watch?v=VnyctcvH2WI" } 
-    ],
-    "12": [ 
-        { "title": "Physics: Waves (Grade 12)", "url": "https://www.youtube.com/watch?v=2u3HSBbuY3U" } 
-    ]
-  },
-  "history": {
-    "7": [],
-    "8": [],
-    "9": [ 
-        { "title": "History: Ancient Civilizations (Grade 9)", "url": "https://www.youtube.com/watch?v=EcZbRe09EgE" } 
-    ],
-    "10": [ 
-        { "title": "History: Medieval Period (Grade 10)", "url": "https://www.youtube.com/watch?v=HQVPpz4RXzE" } 
-    ],
-    "11": [ 
-        { "title": "History: Modern Era (Grade 11)", "url": "https://www.youtube.com/watch?v=eO5legRXQRY" } 
-    ],
-    "12": [ 
-        { "title": "History: Exam Review (Grade 12)", "url": "https://www.youtube.com/watch?v=B_E671Sli1k" } 
-    ]
-  },
-  "geography": {
-    "7": [],
-    "8": [],
-    "9": [ 
-        { "title": "Geography: Maps (Grade 9)", "url": "https://www.youtube.com/watch?v=NwMKReC7-cc", "youtubeId": "NwMKReC7-cc" } 
-    ],
-    "10": [ 
-        { "title": "Geography: Landforms (Grade 10)", "url": "https://www.youtube.com/watch?v=C9DnUZ8hDIU", "youtubeId": "C9DnUZ8hDIU" } 
-    ],
-    "11": [ 
-        { "title": "Geography: Climate (Grade 11)", "url": "https://www.youtube.com/watch?v=oRJ2fy1E7NI", "youtubeId": "oRJ2fy1E7NI" } 
-    ],
-    "12": [ 
-        { "title": "Geography: Human Geography (Grade 12)", "url": "https://www.youtube.com/watch?v=ywqSVlkSk-0", "youtubeId": "ywqSVlkSk-0" } 
-    ]
-  },
-  "economics": {
-    "7": [],
-    "8": [],
-    "9": [ 
-        { "title": "Economics: Basics (Grade 9)", "url": "https://www.youtube.com/watch?v=U6uGl8D5yf8", "youtubeId": "U6uGl8D5yf8" } 
-    ],
-    "10": [ 
-        { "title": "Economics: Markets (Grade 10)", "url": "https://www.youtube.com/watch?v=PsIoqiu7KW0" , "youtubeId": "PsIoqiu7KW0" } 
-    ],
-    "11": [ 
-        { "title": "Economics: Supply & Demand (Grade 11)", "url": "https://www.youtube.com/watch?v=QsgvBJOTIU0" , "youtubeId": "QsgvBJOTIU0"} 
-    ],
-    "12": [ 
-        { "title": "Economics: Exam Topics (Grade 12)", "url": "https://www.youtube.com/watch?v=tC9YxOq-lDI", "youtubeId": "tC9YxOq-lDI" } 
-    ]
-  }
+    "amharic": {
+        "7": [ 
+            { "title": "Amharic Basics (Grade 7)", "url": "https://www.youtube.com/watch?v=AyrPCnufTNg", "youtubeId": "AyrPCnufTNg" } 
+        ],
+        "8": [ 
+            { "title": "Amharic: Reading (Grade 8)", "url": "https://www.youtube.com/watch?v=INtTh9Smu4w", "youtubeId": "INtTh9Smu4w" } 
+        ],
+        "9": [ 
+            { "title": "Amharic: Composition (Grade 9)", "url": "https://www.youtube.com/watch?v=sDJ9V2lulLY", "youtubeId": "sDJ9V2lulLY" } 
+        ],
+        "10": [ 
+            { "title": "Amharic: Grammar (Grade 10)", "url": "https://www.youtube.com/watch?v=qdkdIg257Wc", "youtubeId": "qdkdIg257Wc" } 
+        ],
+        "11": [ 
+            { "title": "Amharic: Advanced Topics (Grade 11)", "url": "https://www.youtube.com/watch?v=hrMcm65yPZw", "youtubeId": "hrMcm65yPZw" } 
+        ],
+        "12": [ 
+            { "title": "Amharic: Exam Prep (Grade 12)", "url": "https://www.youtube.com/watch?v=8m1-EnyYSrs", "youtubeId": "8m1-EnyYSrs" } 
+        ]
+    },
+
+    "general-science": {
+        "7": [ 
+            { "title": "General Science: Basics (Grade 7)", "url": "https://www.youtube.com/watch?v=D2oz1M2lvVY", "youtubeId": "D2oz1M2lvVY" } 
+        ],
+        "8": [ 
+            { "title": "General Science: Experiments (Grade 8)", "url": "https://www.youtube.com/watch?v=g5KMF1yQg3c", "youtubeId": "g5KMF1yQg3c" } 
+        ],
+        "9": [ 
+            { "title": "General Science: Concepts (Grade 9)", "url": "https://www.youtube.com/watch?v=ifRUXB5ymgk", "youtubeId": "ifRUXB5ymgk" } 
+        ],
+        "10": [ 
+            { "title": "General Science: Topics (Grade 10)", "url": "https://www.youtube.com/watch?v=kiTvrVLTXj8", "youtubeId": "kiTvrVLTXj8" } 
+        ],
+        "11": [ 
+            { "title": "General Science: Review (Grade 11)", "url": "https://www.youtube.com/watch?v=vy5K4jfhUHg", "youtubeId": "vy5K4jfhUHg" } 
+        ],
+        "12": [ 
+            { "title": "General Science: Advanced (Grade 12)", "url": "https://www.youtube.com/watch?v=A7XrwQ6jTZs", "youtubeId": "A7XrwQ6jTZs" } 
+        ]
+    },
+
+    "mathematics": {
+        "7": [ 
+            { "title": "Mathematics: Algebra (Grade 7)", "url": "https://youtu.be/3JZ_D3ELwOQ", "youtubeId": "3JZ_D3ELwOQ" } 
+        ],
+        "8": [ 
+            { "title": "Mathematics: Geometry (Grade 8)", "url": "https://www.youtube.com/watch?v=CENc9LBOgkA", "youtubeId": "CENc9LBOgkA" } 
+        ],
+        "9": [ 
+            { "title": "Mathematics: Algebra II (Grade 9)", "url": "https://www.youtube.com/watch?v=JeVSmq1Nrpw", "youtubeId": "JeVSmq1Nrpw" } 
+        ],
+        "10": [ 
+            { "title": "Mathematics: Trigonometry (Grade 10)", "url": "https://www.youtube.com/watch?v=tTomwopxKFE", "youtubeId": "tTomwopxKFE" } 
+        ],
+        "11": [ 
+            { "title": "Mathematics: Calculus Intro (Grade 11)", "url": "https://www.youtube.com/watch?v=1HML7mxCzAs", "youtubeId": "1HML7mxCzAs" } 
+        ],
+        "12": [ 
+            { "title": "Mathematics: Exam Topics (Grade 12)", "url": "https://www.youtube.com/watch?v=3RyL_FqbaX0", "youtubeId": "3RyL_FqbaX0" } 
+        ]
+    },
+
+    "citizenship": {
+        "7": [ 
+            { "title": "Citizenship: Rights & Duties (Grade 7)", "url": "https://www.youtube.com/watch?v=YIqjytLPM6Y", "youtubeId": "" } 
+        ],
+        "8": [ 
+            { "title": "Citizenship: Community (Grade 8)", "url": "https://www.youtube.com/watch?v=B8l6CccXFfE", "youtubeId": "B8l6CccXFfE" } 
+        ],
+        "9": [ 
+            { "title": "Citizenship: Governance (Grade 9)", "url": "https://www.youtube.com/watch?v=VYxYbt9cFgA", "youtubeId": "VYxYbt9cFgA" } 
+        ],
+        "10": [ 
+            { "title": "Citizenship: Law Basics (Grade 10)", "url": "https://www.youtube.com/watch?v=6WHipujjAKk", "youtubeId": "6WHipujjAKk" } 
+        ],
+        "11": [ 
+            { "title": "Citizenship: Civic Engagement (Grade 11)", "url": "https://www.youtube.com/watch?v=UpugWQLonyI", "youtubeId": "UpugWQLonyI" } 
+        ],
+        "12": [ 
+            { "title": "Citizenship: Exam Prep (Grade 12)", "url": "https://www.youtube.com/watch?v=rsfY2aRd7fY", "youtubeId": "rsfY2aRd7fY" } 
+        ]
+    },
+
+    "social-studies": {
+        "7": [ 
+            { "title": "Social Studies: Community (Grade 7)", "url": "https://www.youtube.com/watch?v=DSG70Cm8TnY", "youtubeId": "DSG70Cm8TnY" } 
+        ],
+        "8": [ 
+            { "title": "Social Studies: Culture (Grade 8)", "url": "https://www.youtube.com/watch?v=jz6WG8G-vgg", "youtubeId": "jz6WG8G-vgg" } 
+        ],
+        "9": [ 
+            { "title": "Social Studies: Society (Grade 9)", "url": "https://www.youtube.com/watch?v=aIs1r0wd3CY", "youtubeId": "aIs1r0wd3CY" } 
+        ],
+        "10": [ 
+            { "title": "Social Studies: History (Grade 10)", "url": "https://www.youtube.com/watch?v=DV7QwyMD_AE", "youtubeId": "DV7QwyMD_AE" } 
+        ],
+        "11": [ 
+            { "title": "Social Studies: Topics (Grade 11)", "url": "https://www.youtube.com/watch?v=YlVTXUr-EfQ", "youtubeId": "YlVTXUr-EfQ" } 
+        ],
+        "12": [ 
+            { "title": "Social Studies: Review (Grade 12)", "url": "https://www.youtube.com/watch?v=_qB4ajftOfo", "youtubeId": "_qB4ajftOfo" } 
+        ]
+    },
+
+    "biology": {
+        "7": [],
+        "8": [],
+        "9": [ 
+            { "title": "Biology: Cell Structure (Grade 9)", "url": "https://www.youtube.com/watch?v=6v8djXa-IPQ", "youtubeId": "6v8djXa-IPQ" } 
+        ],
+        "10": [ 
+            { "title": "Biology: Genetics (Grade 10)", "url": "https://www.youtube.com/watch?v=HaS0xNcAaWo&list=PLybg94GvOJ9HH3IbmPRCfU4knUiBJPq1Z", "youtubeId": "HaS0xNcAaWo" } 
+        ],
+        "11": [ 
+            { "title": "Biology: Human Body (Grade 11)", "url": "https://www.youtube.com/watch?v=HZGxmeFxtFk", "youtubeId": "HZGxmeFxtFk" } 
+        ],
+        "12": [ 
+            { "title": "Biology: Advanced Topics (Grade 12)", "url": "https://www.youtube.com/watch?v=11-8ecpwOXs", "youtubeId": "11-8ecpwOXs" } 
+        ]
+    },
+
+    "chemistry": {
+        "7": [],
+        "8": [],
+        "9": [ 
+            { "title": "Chemistry: Basics (Grade 9)", "url": "https://www.youtube.com/watch?v=-KfG8kH-r3Y", "youtubeId": "-KfG8kH-r3Y" } 
+        ],
+        "10": [ 
+            { "title": "Chemistry: Reactions (Grade 10)", "url": "https://www.youtube.com/watch?v=vZIsPIv19vw", "youtubeId": "vZIsPIv19vw" } 
+        ],
+        "11": [ 
+            { "title": "Chemistry: Stoichiometry (Grade 11)", "url": "https://www.youtube.com/watch?v=B_ketdzJtY8", "youtubeId": "B_ketdzJtY8" } 
+        ],
+        "12": [ 
+            { "title": "Chemistry: Organic Intro (Grade 12)", "url": "https://www.youtube.com/watch?v=B_ketdzJtY8&pp=ygURb3JnYW5pYyBjaGVtaXN0cnnSBwkJPAoBhyohjO8%3D", "youtubeId": "B_ketdzJtY8" },
+            { "title": "Chemistry: Inorganic Intro (Grade 12)", "url": "https://www.youtube.com/watch?v=9_s5WSR_V8o", "youtubeId": "9_s5WSR_V8o" } 
+        ]
+    },
+
+    "physics": {
+        "7": [],
+        "8": [],
+        "9": [ 
+            { "title": "Physics: Motion (Grade 9)", "url": "https://www.youtube.com/watch?v=ZAqIoDhornk", "youtubeId": "ZAqIoDhornk" }
+        ],
+        "10": [ 
+            { "title": "Physics: Forces (Grade 10)", "url": "https://www.youtube.com/watch?v=b1t41Q3xRM8" } 
+        ],
+        "11": [ 
+            { "title": "Physics: Electricity (Grade 11)", "url": "https://www.youtube.com/watch?v=VnyctcvH2WI" } 
+        ],
+        "12": [ 
+            { "title": "Physics: Waves (Grade 12)", "url": "https://www.youtube.com/watch?v=2u3HSBbuY3U" } 
+        ]
+    },
+
+    "history": {
+        "7": [],
+        "8": [],
+        "9": [ 
+            { "title": "History: Ancient Civilizations (Grade 9)", "url": "https://www.youtube.com/watch?v=EcZbRe09EgE" } 
+        ],
+        "10": [ 
+            { "title": "History: Medieval Period (Grade 10)", "url": "https://www.youtube.com/watch?v=HQVPpz4RXzE" } 
+        ],
+        "11": [ 
+            { "title": "History: Modern Era (Grade 11)", "url": "https://www.youtube.com/watch?v=eO5legRXQRY" } 
+        ],
+        "12": [ 
+            { "title": "History: Exam Review (Grade 12)", "url": "https://www.youtube.com/watch?v=B_E671Sli1k" } 
+        ]
+    },
+
+    "geography": {
+        "7": [],
+        "8": [],
+        "9": [ 
+            { "title": "Geography: Maps (Grade 9)", "url": "https://www.youtube.com/watch?v=NwMKReC7-cc", "youtubeId": "NwMKReC7-cc" } 
+        ],
+        "10": [ 
+            { "title": "Geography: Landforms (Grade 10)", "url": "https://www.youtube.com/watch?v=C9DnUZ8hDIU", "youtubeId": "C9DnUZ8hDIU" } 
+        ],
+        "11": [ 
+            { "title": "Geography: Climate (Grade 11)", "url": "https://www.youtube.com/watch?v=oRJ2fy1E7NI", "youtubeId": "oRJ2fy1E7NI" } 
+        ],
+        "12": [ 
+            { "title": "Geography: Human Geography (Grade 12)", "url": "https://www.youtube.com/watch?v=ywqSVlkSk-0", "youtubeId": "ywqSVlkSk-0" } 
+        ]
+    },
+
+    "economics": {
+        "7": [],
+        "8": [],
+        "9": [ 
+            { "title": "Economics: Basics (Grade 9)", "url": "https://www.youtube.com/watch?v=U6uGl8D5yf8", "youtubeId": "U6uGl8D5yf8" } 
+        ],
+        "10": [ 
+            { "title": "Economics: Markets (Grade 10)", "url": "https://www.youtube.com/watch?v=PsIoqiu7KW0" , "youtubeId": "PsIoqiu7KW0" } 
+        ],
+        "11": [ 
+            { "title": "Economics: Supply & Demand (Grade 11)", "url": "https://www.youtube.com/watch?v=QsgvBJOTIU0" , "youtubeId": "QsgvBJOTIU0"} 
+        ],
+        "12": [ 
+            { "title": "Economics: Exam Topics (Grade 12)", "url": "https://www.youtube.com/watch?v=tC9YxOq-lDI", "youtubeId": "tC9YxOq-lDI" } 
+        ]
+    }
 }
