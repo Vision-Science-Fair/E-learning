@@ -14,8 +14,8 @@
         <a href="home.html">Home</a>
         <a href="grades.html">Grades</a>
         <a class="active" href="subjects.html">Subjects</a>
-        <a href="videos.html">Videos</a>
-        <a href="books.html">Books</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="BIT-Students\index.html">Tasks</a>
         <a href="about.html">About</a>
     </nav>
 
@@ -121,14 +121,26 @@
         <h3 id="popup-title">Choose Option</h3>
         <button id="booksBtn">Books</button>
         <button id="videosBtn">Videos</button>
+        <button id="quizzesBtn">Quizzes</button>
         <span id="closePopup" class="close">×</span>
     </div>
 </div>
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 LearnNest. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
 <script>
 const popup = document.getElementById("popup");
 const popupTitle = document.getElementById("popup-title");
 const booksBtn = document.getElementById("booksBtn");
 const videosBtn = document.getElementById("videosBtn");
+const quizzesBtn = document.getElementById("quizzesBtn")
 const closePopup = document.getElementById("closePopup");
 
 document.querySelectorAll(".subject-list a").forEach(link => {
@@ -158,6 +170,19 @@ document.querySelectorAll(".subject-list a").forEach(link => {
                 // fallback to generic videos page
                 window.location.href = 'videos.html';
             }
+        };
+        quizzesBtn.onclick = () => {
+        const paramsString = baseUrl.includes('?') ? baseUrl.split('?')[1] : '';
+        const urlParams = new URLSearchParams(paramsString);
+
+        const grade = urlParams.get('grade');
+        const subject = urlParams.get('subject');
+
+        if (grade && subject) {
+        window.location.href = `quiz.html?grade=${encodeURIComponent(grade)}&subject=${encodeURIComponent(subject)}`;
+        } else {
+        window.location.href = 'quiz.html';
+        }
         };
     });
 });

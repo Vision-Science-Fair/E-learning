@@ -1,0 +1,126 @@
+{
+  "english": {
+    "7": [
+      {
+        "question": "Which of these is a noun?",
+        "options": ["Run", "Blue", "Cat", "Quickly"],
+        "answer": "Cat"
+      },
+      {
+        "question": "Choose the correct present simple form: 'She ___ to school every day'.",
+        "options": ["go", "goes", "going", "gone"],
+        "answer": "goes"
+      },
+      {
+        "question": "Which sentence is in past tense?",
+        "options": ["He plays football.", "He played football.", "He will play football.", "He is playing football."],
+        "answer": "He played football."
+      },
+      {
+        "question": "Which sentence is written correctly?",
+        "options": ["She don’t like playing football.", "She doesn’t likes playing football.", "She doesn’t like playing football.", "She don’t likes playing football."],
+        "answer": "She doesn’t like playing football."
+      }
+    ],
+    "8": [
+      {
+        "question": "What is the comparative form of 'happy'?",
+        "options": ["happier", "more happy", "most happy", "happiest"],
+        "answer": "happier"
+      },
+      {
+        "question": "Complete: 'She has ___ a cake.'",
+        "options": ["baking", "baked", "bakes", "have baked"],
+        "answer": "baked"
+      }
+    ],
+    "9": [
+      {
+        "question": "Which is a modal verb?",
+        "options": ["must", "was", "do", "be"],
+        "answer": "must"
+      },
+      {
+        "question": "Choose correct conditional: 'If it rains, I ___ at home.'",
+        "options": ["stay", "stayed", "will stay", "would stay"],
+        "answer": "will stay"
+      }
+    ],
+    "10": [
+      {
+        "question": "Which is a modal verb?",
+        "options": ["must", "was", "do", "be"],
+        "answer": "must"
+      },
+      {
+        "question": "Choose correct conditional: 'If it rains, I ___ at home.'",
+        "options": ["stay", "stayed", "will stay", "would stay"],
+        "answer": "will stay"
+      }
+    ],
+    "11": [
+      {
+        "question": "Which is a modal verb?",
+        "options": ["must", "was", "do", "be"],
+        "answer": "must"
+      },
+      {
+        "question": "Choose correct conditional: 'If it rains, I ___ at home.'",
+        "options": ["stay", "stayed", "will stay", "would stay"],
+        "answer": "will stay"
+      }
+    ],
+    "12": [
+      {
+        "question": "Which is a modal verb?",
+        "options": ["must", "was", "do", "be"],
+        "answer": "must"
+      },
+      {
+        "question": "Choose correct conditional: 'If it rains, I ___ at home.'",
+        "options": ["stay", "stayed", "will stay", "would stay"],
+        "answer": "will stay"
+      }
+    ]
+  },
+  "mathematics": {
+    "9": [
+      {
+        "question": "What is 8 × 7?",
+        "options": ["54", "56", "64", "48"],
+        "answer": "56"
+      },
+      {
+        "question": "Solve: 12 - 5 = ?",
+        "options": ["7", "8", "6", "9"],
+        "answer": "7"
+      }
+    ],
+    "10": [
+      {
+        "question": "What is the value of x if 2x + 5 = 13?",
+        "options": ["3", "4", "6", "9"],
+        "answer": "4"
+      },
+      {
+        "question": "What is the area of a rectangle 5 by 8?",
+        "options": ["13", "40", "26", "20"],
+        "answer": "40"
+      }
+    ]
+  },
+  "history": {
+    "9": [
+      {
+        "question": "Ancient Egyptian pyramids are located in which country?",
+        "options": ["Greece", "Egypt", "Italy", "India"],
+        "answer": "Egypt"
+      },
+      {
+        "question": "The Battle of Adwa (1896) was fought in which country?",
+        "options": ["Ethiopia", "Sudan", "Kenya", "Eritrea"],
+        "answer": "Ethiopia"
+      }
+    ]
+  }
+}

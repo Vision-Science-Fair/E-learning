@@ -125,7 +125,7 @@ nav a.active {
     padding: 25px;
     border-radius: 15px;
     text-align: center;
-    width: 280px;
+    width: 325px;
     border: 1px solid rgba(56,189,248,0.25);
     box-shadow: 0 12px 35px rgba(0,0,0,0.5);
 }
@@ -154,6 +154,47 @@ nav a.active {
     font-size: 28px;
     cursor: pointer;
     color: #e5e7eb;
+}
+.footer {
+    background: rgba(15, 23, 42, 0.95);
+    border-top: 1px solid rgba(56,189,248,0.35);
+    box-shadow: 0 -8px 30px rgba(0,0,0,0.5);
+    padding: 28px 10%;
+    text-align: center;
+    margin-top: auto;
+}
+.footer p {
+    color: #bae6fd;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 22px;
+    flex-wrap: wrap;
+}
+.footer a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+    position: relative;
+}
+.footer a::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: #38bdf8;
+    transition: width 0.3s ease;
+}
+.footer a:hover::after {
+    width: 100%;
+}
+.footer a:hover {
+    color: #e0f7ff;
 }
 @media (max-width: 500px) {
     .page-title {

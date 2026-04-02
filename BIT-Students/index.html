@@ -1,0 +1,1432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Assignment Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    :root {
+      --accent: #4f8cff;
+      --danger: #f44336;
+      --warning: #ff9800;
+      --success: #4caf50;
+      --bg: #f4f8fe;
+      --card: #fff;
+      --text: #222;
+      --muted: #888;
+      --border: #e0e6ed;
+      --dark-bg: #181a1b;
+      --dark-card: #242526;
+      --dark-text: #e4e6eb;
+      --dark-muted: #b0b3b8;
+      --dark-border: #3a3b3c;
+    }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.2s, color 0.2s;
+    }
+    body.dark {
+      background: var(--dark-bg);
+      color: var(--dark-text);
+    }
+    .container {
+      max-width: 1300px;
+      margin: 0 auto;
+      padding: 32px 16px;
+    }
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    h1 { font-size: 2.5rem; margin: 0; }
+    .nav {
+      display: flex;
+      gap: 10px;
+    }
+    .nav button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 8px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav button.active, .nav button:hover {
+      background: #1a5fd6;
+    }
+    .card {
+      background: var(--card);
+      border-radius: 9px;
+      box-shadow: 0 2px 8px rgba(60,60,100,0.04);
+      border: 1px solid var(--border);
+      padding: 18px 24px;
+      margin: 18px 0;
+      transition: background 0.2s, border 0.2s;
+    }
+    body.dark .card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+    }
+    .dashboard {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+    }
+    .dashboard .card {
+      flex: 1 1 350px;
+      min-width: 350px;
+      max-width: 410px;
+    }
+    .assign-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .assign-item {
+      display: flex;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+      padding: 10px 0;
+      gap: 10px;
+      transition: background 0.2s;
+    }
+    body.dark .assign-item {
+      border-bottom: 1px solid var(--dark-border);
+    }
+    .assign-item:last-child { border-bottom: none; }
+    .assign-meta {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .subject-badge {
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9em;
+      border-radius: 4px;
+      padding: 2px 10px;
+      margin-right: 4px;
+      display: inline-block;
+    }
+    .priority {
+      font-weight: 600;
+      font-size: 0.9em;
+      margin-right: 8px;
+    }
+    .priority-high { color: var(--danger); }
+    .priority-medium { color: var(--warning);}
+    .priority-low { color: var(--success);}
+    .due {
+      font-weight: bold;
+      font-size: 0.95em;
+      margin-left: 8px;
+    }
+    .due-soon { color: var(--danger);}
+    .due-upcoming { color: var(--warning);}
+    .due-later { color: var(--success);}
+    .attach-list {
+      font-size: 0.9em;
+      color: var(--muted);
+      margin: 2px 0 0 0;
+    }
+    .progress-bar {
+      height: 8px;
+      border-radius: 5px;
+      background: var(--bg);
+      margin-top: 6px;
+      width: 80%;
+      position: relative;
+      overflow: hidden;
+    }
+    .progress-inner {
+      height: 100%;
+      border-radius: 5px;
+      background: var(--accent);
+      transition: width 0.4s;
+    }
+    body.dark .progress-bar { background: #23272e; }
+    .add-btn {
+      background: var(--success);
+      color: #fff;
+      border: none;
+      padding: 7px 16px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 500;
+      margin-left: 12px;
+      margin-top: 6px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .add-btn:hover { background: #388e3c; transform: scale(1.07);}
+    /* Calendar */
+    .calendar {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 2px;
+      background: var(--bg);
+      padding: 6px 2px;
+      border-radius: 7px;
+    }
+    .calendar-header {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .calendar-day {
+      min-height: 50px;
+      padding: 4px;
+      border-radius: 6px;
+      text-align: right;
+      font-size: 0.98em;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.14s;
+      animation: fadeInCalDay 0.6s;
+    }
+    @keyframes fadeInCalDay {
+      from {opacity: 0; transform: translateY(12px);}
+      to {opacity: 1; transform: none;}
+    }
+    .calendar-day.today { background: var(--accent); color: #fff;}
+    .calendar-day.due-soon { background: var(--danger); color: #fff;}
+    .calendar-day.due-upcoming { background: var(--warning); color: #fff;}
+    .calendar-day.due-later { background: var(--success); color: #fff;}
+    .calendar-day.inactive { color: var(--muted); background: none;}
+    .calendar-day .assign-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 2px;
+      background: var(--accent);
+    }
+    /* Reminders */
+    .reminder-list {
+      list-style: none;
+      padding: 0 0 0 12px;
+      margin: 6px 0 0 0;
+      color: var(--muted);
+      font-size: 0.95em;
+    }
+    /* Pomodoro */
+    .pomodoro-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      margin: 8px 0;
+    }
+    .pomodoro-display {
+      font-size: 2.2em;
+      font-weight: 700;
+      margin: 10px 0 8px 0;
+      transition: color 0.3s;
+      animation: pulseFade 1.2s infinite alternate;
+    }
+    @keyframes pulseFade {
+      0% { color: var(--accent);}
+      100% { color: var(--success);}
+    }
+    .pomodoro-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 7px 15px;
+      border-radius: 4px;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 1em;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .pomodoro-btn:disabled { opacity: 0.6;}
+    .pomodoro-btn:hover:not(:disabled) { background: #1a5fd6; transform: scale(1.08);}
+    .pomodoro-log-list {
+      margin: 10px 0 0 0;
+      padding: 0 0 0 15px;
+      font-size: 0.98em;
+      color: var(--muted);
+    }
+    /* Modals and overlays */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0; top: 0; width: 100vw; height: 100vh;
+      background: rgba(0,0,0,0.25);
+      align-items: center;
+      justify-content: center;
+    }
+    .modal.open {
+      display: flex;
+    }
+    .modal .modal-content {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.17);
+      width: 98vw;
+      max-width: 440px;
+      padding: 24px;
+      color: var(--text);
+      position: relative;
+      animation: fadeInModal 0.3s;
+    }
+    @keyframes fadeInModal {
+      from {transform: scale(0.95); opacity: 0;}
+      to {transform: none; opacity: 1;}
+    }
+    body.dark .modal .modal-content {
+      background: var(--dark-card);
+      color: var(--dark-text);
+    }
+    .modal .close {
+      position: absolute;
+      top: 14px;
+      right: 22px;
+      font-size: 1.5em;
+      color: var(--muted);
+      background: none;
+      border: none;
+      cursor: pointer;
+    }
+    .modal form label {
+      display: block;
+      font-weight: 600;
+      margin-top: 16px;
+      margin-bottom: 5px;
+    }
+    .modal form input, .modal form select, .modal form textarea {
+      width: 100%;
+      padding: 7px;
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      background: var(--bg);
+      color: var(--text);
+      margin-bottom: 6px;
+      font-size: 1em;
+      box-sizing: border-box;
+      transition: border 0.16s;
+    }
+    body.dark .modal form input, 
+    body.dark .modal form select,
+    body.dark .modal form textarea {
+      background: #242526;
+      color: var(--dark-text);
+      border: 1px solid var(--dark-border);
+    }
+    .modal form .tags {
+      display: flex; flex-wrap: wrap; gap: 4px;
+    }
+    .modal form .tag {
+      background: var(--accent);
+      color: #fff;
+      border-radius: 4px;
+      padding: 2px 8px;
+      font-size: 0.95em;
+      margin: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 2px;
+    }
+    .modal form .tag .remove-tag {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 1.1em;
+      margin-left: 3px;
+      cursor: pointer;
+    }
+    .switch {
+      margin-left: 16px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      user-select: none;
+    }
+    .switch input { display: none; }
+    .slider {
+      width: 42px; height: 23px;
+      background: #bbb;
+      border-radius: 13px;
+      position: relative;
+      transition: background 0.2s;
+      margin-right: 8px;
+    }
+    .slider::before {
+      content: "";
+      position: absolute;
+      left: 4px; top: 4px;
+      width: 15px; height: 15px;
+      background: #fff;
+      border-radius: 50%;
+      transition: transform 0.2s;
+    }
+    .switch input:checked + .slider {
+      background: var(--accent);
+    }
+    .switch input:checked + .slider::before {
+      transform: translateX(18px);
+    }
+    /* Whiteboard */
+    #whiteboard-container {
+      position: relative;
+      width: 100%;
+      min-height: 250px;
+      margin-top: 10px;
+      border-radius: 7px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(60,60,100,0.06);
+      background: #fff;
+      border: 1px solid #bbb;
+      transition: border 0.15s;
+      touch-action: none;
+    }
+    body.dark #whiteboard-container {
+      background: #23272e;
+      border: 1px solid #444;
+    }
+    #whiteboard {
+      width: 100%;
+      height: 250px;
+      display: block;
+      background: transparent;
+      cursor: crosshair;
+      z-index: 1;
+    }
+    #wb-cursor {
+      position: absolute;
+      pointer-events: none;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      border: 2px solid var(--accent);
+      background: rgba(79, 140, 255, 0.13);
+      transition: left 0.08s, top 0.08s, border 0.15s;
+      z-index: 2;
+      display: none;
+    }
+    #wb-cursor.active {
+      border: 2px solid var(--danger);
+      background: rgba(244,67,54,0.13);
+      animation: pulse-cursor 0.7s infinite alternate;
+    }
+    @keyframes pulse-cursor {
+      from { box-shadow: 0 0 0 0 rgba(244,67,54,0.13);}
+      to { box-shadow: 0 0 0 12px rgba(244,67,54,0.08);}
+    }
+    #wb-toolbar {
+      position: absolute;
+      top: 10px; right: 10px;
+      display: flex;
+      gap: 8px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 6px;
+      box-shadow: 0 2px 7px rgba(60,60,100,0.13);
+      z-index: 5;
+      padding: 6px 10px 6px 8px;
+      align-items: center;
+      animation: fadeInToolbar 0.4s;
+    }
+    body.dark #wb-toolbar {
+      background: rgba(30,30,40,0.93);
+    }
+    @keyframes fadeInToolbar {
+      from { opacity: 0; transform: translateY(-8px);}
+      to { opacity: 1; transform: none;}
+    }
+    #wb-toolbar label {
+      font-size: 0.97em;
+      color: var(--muted);
+    }
+    #wb-toolbar input[type="color"], #wb-toolbar input[type="range"] {
+      vertical-align: middle;
+      margin-left: 4px;
+      margin-right: 8px;
+    }
+    .wb-tool-btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 4px;
+      padding: 6px 12px;
+      cursor: pointer;
+      margin: 0 2px;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .wb-tool-btn.active { background: var(--danger);}
+    .wb-tool-btn:hover { background: #1a5fd6; transform: scale(1.06);}
+    /* Flashcard style */
+    .flashcard-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .flashcard {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 7px;
+      padding: 10px 14px;
+      min-width: 120px;
+      cursor: pointer;
+      font-size: 1.08em;
+      transition: box-shadow 0.15s, background 0.3s, color 0.3s;
+      box-shadow: 0 2px 7px rgba(60,60,100,0.09);
+      animation: fadeInFlash 0.4s;
+    }
+    .flashcard.flipped { background: var(--accent); color: #fff;}
+    @keyframes fadeInFlash {
+      from { opacity: 0; transform: scale(0.93);}
+      to { opacity: 1; transform: none;}
+    }
+    /* Achievement badges */
+    .badge {
+      display: inline-block;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 50px;
+      padding: 4px 13px;
+      font-size: 0.95em;
+      margin: 2px 3px;
+      font-weight: 600;
+      animation: fadeInBadge 0.5s;
+    }
+    @keyframes fadeInBadge {
+      from { opacity: 0; transform: translateY(-7px);}
+      to { opacity: 1; transform: none;}
+    }
+    /* Analytics */
+    #analyticsContent {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      margin-top: 20px;
+    }
+    .chart-card {
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 2px 9px rgba(60,60,100,0.09);
+      padding: 18px 22px;
+      min-width: 260px;
+      flex: 1 1 320px;
+      margin-bottom: 8px;
+      border: 1px solid var(--border);
+      animation: fadeInChart 0.5s;
+      min-height: 310px;
+    }
+    body.dark .chart-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+    }
+    @keyframes fadeInChart {
+      from { opacity: 0; transform: scale(0.93);}
+      to { opacity: 1; transform: none;}
+    }
+    .chart-title { font-weight: 600; margin-bottom: 8px;}
+    /* Responsive */
+    @media (max-width: 900px) {
+      .dashboard { flex-direction: column; gap: 0;}
+      .dashboard .card { min-width: unset; max-width: unset;}
+      #analyticsContent { flex-direction: column; gap: 0;}
+    }
+    @media (max-width: 600px) {
+      .container { padding: 8px;}
+      .modal .modal-content { max-width: 98vw; }
+      #analyticsContent { flex-direction: column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Assignment Tracker</h1>
+      <div>
+        <label class="switch">
+          <input type="checkbox" id="darkModeToggle"/>
+          <span class="slider"></span>
+          <span id="darkModeLabel">Dark Mode</span>
+        </label>
+        <nav class="nav">
+          <button class="active" data-tab="dashboard">Dashboard</button>
+          <button data-tab="calendar">Calendar</button>
+          <button data-tab="reminders">Reminders</button>
+          <button data-tab="pomodoro">Pomodoro</button>
+          <button data-tab="planner">Study Planner</button>
+          <button data-tab="resources">Resources</button>
+          <button data-tab="collab">Collaboration</button>
+          <button data-tab="flashcards">Flashcards</button>
+          <button data-tab="whiteboard">Whiteboard</button>
+          <button data-tab="analytics">Analytics</button>
+        </nav>
+      </div>
+    </header>
+    <!-- Dashboard -->
+    <section class="dashboard tab-content card" id="dashboardTab">
+      <div style="flex: 2;">
+        <h2>Assignments</h2>
+        <button class="add-btn" onclick="openModal('addAssignModal')">+ Add Assignment</button>
+        <ul class="assign-list" id="assignList"></ul>
+      </div>
+      <div style="flex: 1;">
+        <h3>Achievements</h3>
+        <div id="badgeList"></div>
+        <h3>Progress</h3>
+        <div id="progressSummary"></div>
+      </div>
+    </section>
+    <!-- Calendar -->
+    <section class="tab-content card" id="calendarTab" style="display:none;">
+      <h2>Assignment Calendar</h2>
+      <div class="calendar-header" id="calendarHeader"></div>
+      <div class="calendar" id="calendarGrid"></div>
+    </section>
+    <!-- Reminders -->
+    <section class="tab-content card" id="remindersTab" style="display:none;">
+      <h2>Reminders</h2>
+      <ul id="reminderList"></ul>
+    </section>
+    <!-- Pomodoro -->
+    <section class="tab-content card" id="pomodoroTab" style="display:none;">
+      <h2>Pomodoro Timer</h2>
+      <div>
+        <label>
+          Focus (min): <input type="number" id="focusLength" value="25" min="10" max="60" style="width:50px;">
+        </label>
+        <label>
+          Break (min): <input type="number" id="breakLength" value="5" min="1" max="30" style="width:50px;">
+        </label>
+        <select id="pomodoroAssign">
+          <option value="">--Assign to--</option>
+        </select>
+      </div>
+      <div class="pomodoro-display" id="pomodoroDisplay">25:00</div>
+      <div class="pomodoro-controls">
+        <button class="pomodoro-btn" id="startPomodoro">Start</button>
+        <button class="pomodoro-btn" id="stopPomodoro" disabled>Stop</button>
+        <button class="pomodoro-btn" id="resetPomodoro">Reset</button>
+        <button class="pomodoro-btn" id="logDistraction">Log Distraction</button>
+      </div>
+      <div>
+        <strong>Session Logs:</strong>
+        <ol class="pomodoro-log-list" id="pomodoroLogs"></ol>
+        <div><strong>Distractions:</strong> <span id="distractionCount">0</span></div>
+      </div>
+    </section>
+    <!-- Study Planner -->
+    <section class="tab-content card" id="plannerTab" style="display:none;">
+      <h2>Study Planner</h2>
+      <button class="add-btn" onclick="openModal('addPlanModal')">+ Add Study Session</button>
+      <ul id="planList"></ul>
+    </section>
+    <!-- Resource Library -->
+    <section class="tab-content card" id="resourcesTab" style="display:none;">
+      <h2>Resource Library</h2>
+      <button class="add-btn" onclick="openModal('addResModal')">+ Add Resource</button>
+      <ul id="resourceList"></ul>
+    </section>
+    <!-- Collaboration Space -->
+    <section class="tab-content card" id="collabTab" style="display:none;">
+      <h2>Collaboration Space</h2>
+      <button class="add-btn" onclick="openModal('addCollabModal')">+ Add Group Project</button>
+      <ul id="collabList"></ul>
+    </section>
+    <!-- Flashcards -->
+    <section class="tab-content card" id="flashcardsTab" style="display:none;">
+      <h2>Flashcards</h2>
+      <button class="add-btn" onclick="openModal('addFlashModal')">+ Add Flashcard</button>
+      <div class="flashcard-list" id="flashcardList"></div>
+    </section>
+    <!-- Whiteboard -->
+    <section class="tab-content card" id="whiteboardTab" style="display:none;">
+      <h2>Whiteboard</h2>
+      <div id="whiteboard-container">
+        <canvas id="whiteboard" width="900" height="250"></canvas>
+        <div id="wb-toolbar">
+          <label>Color <input type="color" id="wb-color" value="#222222"></label>
+          <label>Size <input type="range" id="wb-size" min="2" max="16" value="4" style="width:60px;"></label>
+          <button class="wb-tool-btn" id="wb-erase">Eraser</button>
+          <button class="wb-tool-btn" onclick="whiteboardClear()">Clear</button>
+          <button class="wb-tool-btn" onclick="whiteboardSave()">Save</button>
+        </div>
+        <div id="wb-cursor"></div>
+      </div>
+    </section>
+    <!-- Analytics -->
+    <section class="tab-content card" id="analyticsTab" style="display:none;">
+      <h2>Productivity Analytics</h2>
+      <div id="analyticsContent"></div>
+    </section>
+  </div>
+
+  <!-- Assignment Modal -->
+  <div class="modal" id="addAssignModal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('addAssignModal')">&times;</button>
+      <form id="assignForm">
+        <h2>Add Assignment</h2>
+        <label>Title <input name="title" required></label>
+        <label>Due Date <input type="date" name="due" required></label>
+        <label>Priority
+          <select name="priority" required>
+            <option value="high">High</option>
+            <option value="medium" selected>Medium</option>
+            <option value="low">Low</option>
+          </select>
+        </label>
+        <label>Subject <input name="subject" required></label>
+        <label>Tags <input name="tagInput" placeholder="Comma separated"></label>
+        <div class="tags" id="assignTags"></div>
+        <label>Attachment <input type="file" name="attachment" multiple></label>
+        <label>Notes <textarea name="notes" rows="2"></textarea></label>
+        <label>
+          <input type="checkbox" name="aiBreakdown"> AI Task Breakdown
+        </label>
+        <button type="submit" class="add-btn">Add</button>
+      </form>
+    </div>
+  </div>
+  <!-- Study Session Modal -->
+  <div class="modal" id="addPlanModal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('addPlanModal')">&times;</button>
+      <form id="planForm">
+        <h2>Add Study Session</h2>
+        <label>Assignment
+          <select name="assignment" required></select>
+        </label>
+        <label>Date <input type="date" name="date" required></label>
+        <label>Start Time <input type="time" name="start" required></label>
+        <label>End Time <input type="time" name="end" required></label>
+        <button type="submit" class="add-btn">Schedule</button>
+      </form>
+    </div>
+  </div>
+  <!-- Resource Modal -->
+  <div class="modal" id="addResModal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('addResModal')">&times;</button>
+      <form id="resForm">
+        <h2>Add Resource</h2>
+        <label>Subject <input name="subject" required></label>
+        <label>Title <input name="title" required></label>
+        <label>File <input type="file" name="resourceFile"></label>
+        <label>Notes <textarea name="notes"></textarea></label>
+        <button type="submit" class="add-btn">Add</button>
+      </form>
+    </div>
+  </div>
+  <!-- Collaboration Modal -->
+  <div class="modal" id="addCollabModal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('addCollabModal')">&times;</button>
+      <form id="collabForm">
+        <h2>Add Group Project</h2>
+        <label>Project Title <input name="title" required></label>
+        <label>Members <input name="members" placeholder="Comma separated"></label>
+        <label>Notes <textarea name="notes"></textarea></label>
+        <button type="submit" class="add-btn">Add</button>
+      </form>
+    </div>
+  </div>
+  <!-- Flashcard Modal -->
+  <div class="modal" id="addFlashModal">
+    <div class="modal-content">
+      <button class="close" onclick="closeModal('addFlashModal')">&times;</button>
+      <form id="flashForm">
+        <h2>Add Flashcard</h2>
+        <label>Front <input name="front" required></label>
+        <label>Back <input name="back" required></label>
+        <button type="submit" class="add-btn">Add</button>
+      </form>
+    </div>
+  </div>
+
+  <audio id="voiceNote" controls style="display:none;"></audio>
+  <script>
+    // --- Data storage (localStorage for demo) ---
+    let assignments = JSON.parse(localStorage.getItem('assignments')||'[]');
+    let plans = JSON.parse(localStorage.getItem('plans')||'[]');
+    let resources = JSON.parse(localStorage.getItem('resources')||'[]');
+    let collabs = JSON.parse(localStorage.getItem('collabs')||'[]');
+    let flashcards = JSON.parse(localStorage.getItem('flashcards')||'[]');
+    let pomodoroLogs = JSON.parse(localStorage.getItem('pomodoroLogs')||'[]');
+    let badges = JSON.parse(localStorage.getItem('badges')||'[]');
+    let darkMode = localStorage.getItem('darkMode')==='true';
+
+    // --- Utility functions ---
+    function saveAll() {
+      localStorage.setItem('assignments', JSON.stringify(assignments));
+      localStorage.setItem('plans', JSON.stringify(plans));
+      localStorage.setItem('resources', JSON.stringify(resources));
+      localStorage.setItem('collabs', JSON.stringify(collabs));
+      localStorage.setItem('flashcards', JSON.stringify(flashcards));
+      localStorage.setItem('pomodoroLogs', JSON.stringify(pomodoroLogs));
+      localStorage.setItem('badges', JSON.stringify(badges));
+    }
+    function daysLeft(date) {
+      let now = new Date();
+      let d = new Date(date); d.setHours(23,59,59,0);
+      return Math.ceil((d-now)/(1000*60*60*24));
+    }
+    function urgencyClass(days) {
+      if (days<=1) return 'due-soon';
+      if (days<=3) return 'due-upcoming';
+      return 'due-later';
+    }
+    function progressPercent(a) {
+      if (a.completed) return 100;
+      let now = new Date();
+      let created = new Date(a.created||a.due);
+      let due = new Date(a.due);
+      let total = due-created;
+      let done = now-created;
+      let p = Math.min(100, Math.max(0, Math.round(done/total*100)));
+      return p;
+    }
+    function formatDate(d) {
+      let date = new Date(d);
+      return date.toLocaleDateString(undefined, {month:'short',day:'numeric',year:'numeric'});
+    }
+    function id() { return Math.random().toString(36).slice(2); }
+
+    // --- Dark mode ---
+    function setDarkMode(on) {
+      document.body.classList.toggle('dark', on);
+      localStorage.setItem('darkMode', on);
+      document.getElementById('darkModeToggle').checked = on;
+    }
+    setDarkMode(darkMode);
+
+    document.getElementById('darkModeToggle').addEventListener('change', e=>{
+      setDarkMode(e.target.checked);
+    });
+
+    // --- Navigation ---
+    document.querySelectorAll('.nav button').forEach(btn=>{
+      btn.onclick = ()=>{
+        document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+        btn.classList.add('active');
+        let tab = btn.dataset.tab;
+        document.querySelectorAll('.tab-content').forEach(sec=>sec.style.display='none');
+        document.getElementById(tab+'Tab').style.display='';
+      }
+    });
+
+    // --- Assignment Dashboard ---
+    function renderAssignments() {
+      let el = document.getElementById('assignList');
+      el.innerHTML = '';
+      assignments.forEach((a,i)=>{
+        let days = daysLeft(a.due);
+        let urg = urgencyClass(days);
+        let li = document.createElement('li');
+        li.className = 'assign-item';
+        li.innerHTML = `
+          <div class="assign-meta">
+            <span>
+              <span class="subject-badge">${a.subject}</span>
+              <span class="priority priority-${a.priority}">${a.priority[0].toUpperCase()+a.priority.slice(1)}</span>
+              <span>${a.title}</span>
+              <span class="due ${urg}">${formatDate(a.due)} (${days>0?days+'d':'Today'})</span>
+            </span>
+            <span class="attach-list">${(a.attachments||[]).map(f=>`<a href="${f.url}" target="_blank">${f.name}</a>`).join(', ')}</span>
+            <span class="tags">${(a.tags||[]).map(t=>`<span class="subject-badge">${t}</span>`).join(' ')}</span>
+            <div>
+              <progress class="progress-bar" max="100" value="${progressPercent(a)}"></progress>
+              <span>${progressPercent(a)}%</span>
+              ${a.completed?' &#x2714;':''}
+            </div>
+          </div>
+          <button class="add-btn" onclick="completeAssignment('${a.id}')">${a.completed?'Uncomplete':'Complete'}</button>
+        `;
+        el.appendChild(li);
+      });
+      // Update pomodoro assignment dropdown
+      let pomSel = document.getElementById('pomodoroAssign');
+      pomSel.innerHTML = `<option value="">--Assign to--</option>`+assignments.map(a=>`<option value="${a.id}">${a.title}</option>`).join('');
+      // Update plan assignment dropdown
+      let planSel = document.querySelector('#planForm select[name="assignment"]');
+      planSel.innerHTML = assignments.map(a=>`<option value="${a.id}">${a.title}</option>`).join('');
+      renderBadges();
+      renderProgressSummary();
+    }
+    function completeAssignment(aid) {
+      let a = assignments.find(a=>a.id===aid);
+      if (!a) return;
+      a.completed = !a.completed;
+      if (a.completed && !badges.includes('First Complete')) badges.push('First Complete');
+      saveAll();
+      renderAssignments();
+    }
+
+    // --- Modals ---
+    function openModal(id) {
+      document.getElementById(id).classList.add('open');
+    }
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('open');
+    }
+
+    // --- Assignment Form ---
+    document.getElementById('assignForm').onsubmit = async function(e) {
+      e.preventDefault();
+      let fd = new FormData(this);
+      let assign = {
+        id: id(),
+        title: fd.get('title'),
+        due: fd.get('due'),
+        priority: fd.get('priority'),
+        subject: fd.get('subject'),
+        tags: fd.get('tagInput') ? fd.get('tagInput').split(',').map(t=>t.trim()).filter(Boolean) : [],
+        attachments: [],
+        notes: fd.get('notes'),
+        created: new Date().toISOString(),
+        completed: false
+      };
+      // Attachments - for demo, store file names (real app: save files on server/cloud)
+      if (this.attachment.files.length) {
+        for (let file of this.attachment.files) {
+          let url = URL.createObjectURL(file);
+          assign.attachments.push({name: file.name, url});
+        }
+      }
+      // AI Breakdown demo
+      if (fd.get('aiBreakdown')) {
+        assign.steps = [`Breakdown 1 for "${assign.title}"`, `Breakdown 2 for "${assign.title}"`];
+        if (!badges.includes('Tried AI Breakdown')) badges.push('Tried AI Breakdown');
+      }
+      assignments.push(assign);
+      saveAll();
+      renderAssignments();
+      closeModal('addAssignModal');
+      this.reset();
+    };
+
+    // --- Calendar Rendering ---
+    function renderCalendar() {
+      let now = new Date();
+      let y = now.getFullYear(), m = now.getMonth();
+      let first = new Date(y, m, 1).getDay();
+      let daysInMonth = new Date(y, m+1, 0).getDate();
+      let grid = [];
+      let offset = (first+6)%7; // shift to Mon-Sun
+      for (let i=0; i<offset; ++i) grid.push({inactive:true});
+      for (let d=1; d<=daysInMonth; ++d) {
+        let date = new Date(y, m, d).toISOString().split('T')[0];
+        let as = assignments.filter(a=>a.due===date);
+        let cls = '';
+        if (date===now.toISOString().split('T')[0]) cls='today';
+        else if (as.length) cls = urgencyClass(daysLeft(date));
+        grid.push({date, day:d, cls, as});
+      }
+      let cal = document.getElementById('calendarGrid');
+      cal.innerHTML = '';
+      grid.forEach(cell=>{
+        let el = document.createElement('div');
+        el.className = 'calendar-day'+(cell.cls?' '+cell.cls:'')+(cell.inactive?' inactive':'');
+        el.textContent = cell.day||'';
+        if (cell.as&&cell.as.length) {
+          el.innerHTML += ' <span class="assign-dot"></span>'.repeat(cell.as.length);
+          el.title = cell.as.map(a=>a.title).join(', ');
+        }
+        cal.appendChild(el);
+      });
+      let header = document.getElementById('calendarHeader');
+      header.innerHTML = ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].map(d=>`<span>${d}</span>`).join('');
+    }
+
+    // --- Reminders ---
+    function renderReminders() {
+      let el = document.getElementById('reminderList');
+      el.innerHTML = '';
+      assignments.forEach(a=>{
+        let days = daysLeft(a.due);
+        let freq = days<=0? 'Hourly' : days<=1? 'Every 3h' : days<=3? 'Every Day' : 'Every 3 Days';
+        let li = document.createElement('li');
+        li.innerHTML = `<b>${a.title}</b> (${formatDate(a.due)})<br>
+          <span>Priority: ${a.priority}</span><br>
+          <span>Remind: <b>${freq}</b> <button class="add-btn" onclick="snoozeReminder('${a.id}')">Snooze</button></span>
+          <ul class="reminder-list">${(a.reminders||[]).map(r=>`<li>${r}</li>`).join('')}</ul>
+        `;
+        el.appendChild(li);
+      });
+    }
+    function snoozeReminder(aid) {
+      let mins = prompt("Snooze for how many minutes?", "30");
+      if (!mins) return;
+      let a = assignments.find(a=>a.id===aid);
+      if (!a) return;
+      if (!a.reminders) a.reminders=[];
+      a.reminders.push(`Snoozed for ${mins} min at ${new Date().toLocaleTimeString()}`);
+      saveAll();
+      renderReminders();
+      if ('Notification' in window) Notification.requestPermission();
+    }
+
+    // --- Pomodoro Timer ---
+    let pomo = {
+      running: false, focus: 25, break: 5, time: 1500, mode: 'focus', interval: null, assign: null, distractions: 0
+    };
+    function updatePomodoro() {
+      let min = Math.floor(pomo.time/60), sec = pomo.time%60;
+      document.getElementById('pomodoroDisplay').textContent = `${min}:${sec<10?'0':''}${sec}`;
+    }
+    document.getElementById('focusLength').addEventListener('change', e=>{
+      pomo.focus = +e.target.value;
+      if (pomo.mode==='focus') { pomo.time = pomo.focus*60; updatePomodoro(); }
+    });
+    document.getElementById('breakLength').addEventListener('change', e=>{
+      pomo.break = +e.target.value;
+      if (pomo.mode==='break') { pomo.time = pomo.break*60; updatePomodoro(); }
+    });
+    document.getElementById('pomodoroAssign').addEventListener('change', e=>{
+      pomo.assign = e.target.value;
+    });
+    document.getElementById('startPomodoro').onclick = ()=>{
+      if (pomo.running) return;
+      pomo.running = true;
+      document.getElementById('startPomodoro').disabled = true;
+      document.getElementById('stopPomodoro').disabled = false;
+      pomo.interval = setInterval(()=>{
+        if (pomo.time>0) {
+          pomo.time--;
+          updatePomodoro();
+        } else {
+          if (pomo.mode==='focus') {
+            pomodoroLogs.push({assignment:pomo.assign, date: new Date().toISOString(), distractions: pomo.distractions});
+            saveAll();
+            renderPomodoroLogs();
+            pomo.mode='break'; pomo.time=pomo.break*60;
+            updatePomodoro();
+            alert('Break time!');
+          } else {
+            pomo.mode='focus'; pomo.time=pomo.focus*60; updatePomodoro();
+            alert('Focus time!');
+          }
+        }
+      }, 1000);
+    };
+    document.getElementById('stopPomodoro').onclick = ()=>{
+      if (pomo.interval) clearInterval(pomo.interval);
+      pomo.running=false;
+      document.getElementById('startPomodoro').disabled = false;
+      document.getElementById('stopPomodoro').disabled = true;
+    };
+    document.getElementById('resetPomodoro').onclick = ()=>{
+      if (pomo.interval) clearInterval(pomo.interval);
+      pomo.mode='focus'; pomo.time=pomo.focus*60; pomo.running=false; pomo.distractions=0;
+      updatePomodoro();
+      document.getElementById('startPomodoro').disabled = false;
+      document.getElementById('stopPomodoro').disabled = true;
+      document.getElementById('distractionCount').textContent = '0';
+    };
+    document.getElementById('logDistraction').onclick = ()=>{
+      pomo.distractions++;
+      document.getElementById('distractionCount').textContent = pomo.distractions;
+    };
+    function renderPomodoroLogs() {
+      let el = document.getElementById('pomodoroLogs');
+      el.innerHTML = pomodoroLogs.slice(-5).map(l=>{
+        let a = assignments.find(a=>a.id===l.assignment);
+        return `<li>${a?a.title:"(Unassigned)"} @ ${formatDate(l.date)} (${l.distractions} distractions)</li>`;
+      }).join('');
+    }
+
+    // --- Study Planner ---
+    document.getElementById('planForm').onsubmit = function(e) {
+      e.preventDefault();
+      let fd = new FormData(this);
+      plans.push({
+        id: id(),
+        assignment: fd.get('assignment'),
+        date: fd.get('date'),
+        start: fd.get('start'),
+        end: fd.get('end')
+      });
+      saveAll();
+      renderPlans();
+      closeModal('addPlanModal');
+      this.reset();
+    };
+    function renderPlans() {
+      let el = document.getElementById('planList');
+      el.innerHTML = plans.map(p=>{
+        let a = assignments.find(a=>a.id===p.assignment);
+        return `<li>
+          <b>${a?a.title:"(Deleted Assignment)"}</b> on ${formatDate(p.date)}
+          (${p.start} - ${p.end})
+        </li>`;
+      }).join('');
+    }
+
+    // --- Resource Library ---
+    document.getElementById('resForm').onsubmit = function(e) {
+      e.preventDefault();
+      let fd = new FormData(this);
+      let res = {
+        id: id(),
+        subject: fd.get('subject'),
+        title: fd.get('title'),
+        notes: fd.get('notes'),
+        file: this.resourceFile.files[0] ? {name: this.resourceFile.files[0].name, url: URL.createObjectURL(this.resourceFile.files[0])} : null
+      };
+      resources.push(res);
+      saveAll();
+      renderResources();
+      closeModal('addResModal');
+      this.reset();
+    };
+    function renderResources() {
+      let el = document.getElementById('resourceList');
+      el.innerHTML = resources.map(r=>
+        `<li>
+          <span class="subject-badge">${r.subject}</span> ${r.title}
+          ${r.file? `<a href="${r.file.url}" target="_blank">${r.file.name}</a>`:''}
+          <br><span style="color:var(--muted);">${r.notes||''}</span>
+        </li>`
+      ).join('');
+    }
+
+    // --- Collaboration ---
+    document.getElementById('collabForm').onsubmit = function(e) {
+      e.preventDefault();
+      let fd = new FormData(this);
+      collabs.push({
+        id: id(),
+        title: fd.get('title'),
+        members: fd.get('members').split(',').map(m=>m.trim()).filter(Boolean),
+        notes: fd.get('notes')
+      });
+      saveAll();
+      renderCollabs();
+      closeModal('addCollabModal');
+      this.reset();
+    };
+    function renderCollabs() {
+      let el = document.getElementById('collabList');
+      el.innerHTML = collabs.map(c=>
+        `<li>
+          <b>${c.title}</b> (${c.members.join(', ')})
+          <br><span style="color:var(--muted);">${c.notes||''}</span>
+        </li>`
+      ).join('');
+    }
+
+    // --- Flashcards ---
+    document.getElementById('flashForm').onsubmit = function(e) {
+      e.preventDefault();
+      let fd = new FormData(this);
+      flashcards.push({
+        id: id(),
+        front: fd.get('front'),
+        back: fd.get('back'),
+        reviewed: 0
+      });
+      saveAll();
+      renderFlashcards();
+      closeModal('addFlashModal');
+      this.reset();
+    };
+    function renderFlashcards() {
+      let el = document.getElementById('flashcardList');
+      el.innerHTML = '';
+      flashcards.forEach((f,idx)=>{
+        let card = document.createElement('div');
+        card.className = 'flashcard';
+        card.innerHTML = `<div>${f.front}</div>`;
+        card.onclick = ()=>{
+          if (card.classList.toggle('flipped')) {
+            card.innerHTML = `<div>${f.back}</div>`;
+            f.reviewed++;
+            saveAll();
+          } else {
+            card.innerHTML = `<div>${f.front}</div>`;
+          }
+        };
+        el.appendChild(card);
+      });
+    }
+
+    // --- Whiteboard Interactive ---
+    const wbContainer = document.getElementById('whiteboard-container');
+    const wb = document.getElementById('whiteboard');
+    const wbd = wb.getContext('2d');
+    let drawing = false, last = {x:0,y:0};
+    let wbColor = document.getElementById('wb-color').value;
+    let wbSize = +document.getElementById('wb-size').value;
+    let erasing = false;
+    const cursor = document.getElementById('wb-cursor');
+    function getCanvasPos(evt) {
+      const rect = wb.getBoundingClientRect();
+      let x, y;
+      if (evt.touches) {
+        x = evt.touches[0].clientX - rect.left;
+        y = evt.touches[0].clientY - rect.top;
+      } else {
+        x = evt.clientX - rect.left;
+        y = evt.clientY - rect.top;
+      }
+      x = x * wb.width / rect.width;
+      y = y * wb.height / rect.height;
+      return {x, y};
+    }
+    function animateDraw(from, to, color, sz) {
+      const steps = Math.max(3, Math.floor(Math.hypot(to.x-from.x, to.y-from.y)/2));
+      for (let i=1; i<=steps; ++i) {
+        let t = i/steps;
+        let xx = from.x + (to.x-from.x)*t;
+        let yy = from.y + (to.y-from.y)*t;
+        wbd.globalCompositeOperation = erasing ? 'destination-out' : 'source-over';
+        wbd.strokeStyle = color;
+        wbd.lineWidth = sz;
+        wbd.beginPath();
+        wbd.moveTo(from.x, from.y);
+        wbd.lineTo(xx, yy);
+        wbd.stroke();
+      }
+    }
+    function setCursor(x, y, active) {
+      cursor.style.display = 'block';
+      cursor.style.left = `${x - 12}px`;
+      cursor.style.top = `${y - 12}px`;
+      cursor.style.width = cursor.style.height = `${wbSize+12}px`;
+      cursor.classList.toggle('active', !!active);
+    }
+    wb.addEventListener('mousedown', e=>{
+      drawing = true;
+      last = getCanvasPos(e);
+      setCursor(e.offsetX, e.offsetY, true);
+    });
+    wb.addEventListener('mouseup', ()=>{drawing=false; cursor.classList.remove('active');});
+    wb.addEventListener('mouseleave', ()=>{drawing=false; cursor.style.display='none';});
+    wb.addEventListener('mousemove', e=>{
+      let p = getCanvasPos(e);
+      setCursor(e.offsetX, e.offsetY, drawing);
+      if (!drawing) return;
+      animateDraw(last, p, erasing?'#fff':wbColor, wbSize);
+      last = p;
+    });
+    // Touch events for mobile
+    wb.addEventListener('touchstart', e=>{
+      e.preventDefault();
+      drawing = true;
+      last = getCanvasPos(e);
+      setCursor(e.touches[0].clientX-wb.getBoundingClientRect().left, e.touches[0].clientY-wb.getBoundingClientRect().top, true);
+    });
+    wb.addEventListener('touchend', ()=>{drawing=false; cursor.classList.remove('active');});
+    wb.addEventListener('touchcancel', ()=>{drawing=false; cursor.style.display='none';});
+    wb.addEventListener('touchmove', e=>{
+      e.preventDefault();
+      let p = getCanvasPos(e);
+      setCursor(e.touches[0].clientX-wb.getBoundingClientRect().left, e.touches[0].clientY-wb.getBoundingClientRect().top, drawing);
+      if (!drawing) return;
+      animateDraw(last, p, erasing?'#fff':wbColor, wbSize);
+      last = p;
+    });
+    // Toolbar
+    document.getElementById('wb-color').oninput = e=>{ wbColor = e.target.value; erasing=false; document.getElementById('wb-erase').classList.remove('active');}
+    document.getElementById('wb-size').oninput = e=>{ wbSize = +e.target.value; }
+    document.getElementById('wb-erase').onclick = e=>{
+      erasing = !erasing;
+      e.target.classList.toggle('active', erasing);
+    };
+    function whiteboardClear() {
+      wbd.clearRect(0,0,wb.width,wb.height);
+    }
+    function whiteboardSave() {
+      let url = wb.toDataURL();
+      let a = document.createElement('a');
+      a.href = url;
+      a.download = 'whiteboard.png';
+      a.click();
+    }
+
+    // --- Achievements ---
+    function renderBadges() {
+      let el = document.getElementById('badgeList');
+      el.innerHTML = badges.map(b=>`<span class="badge">${b}</span>`).join('');
+      // Add more badges based on milestone
+      let completed = assignments.filter(a=>a.completed).length;
+      if (completed>=5 && !badges.includes('5 Assignments')) { badges.push('5 Assignments'); saveAll();}
+      if (pomodoroLogs.length>=10 && !badges.includes('10 Pomodoros')) { badges.push('10 Pomodoros'); saveAll();}
+      el.innerHTML = badges.map(b=>`<span class="badge">${b}</span>`).join('');
+    }
+    function renderProgressSummary() {
+      let el = document.getElementById('progressSummary');
+      let total = assignments.length;
+      let done = assignments.filter(a=>a.completed).length;
+      el.innerHTML = `Assignments done: ${done}/${total}<br>
+        Pomodoros: ${pomodoroLogs.length}<br>
+        Flashcards reviewed: ${flashcards.reduce((a,f)=>a+f.reviewed,0)}`;
+    }
+
+    // --- Analytics Feature ---
+    function renderAnalytics() {
+      let el = document.getElementById('analyticsContent');
+      // Assignment completion over time
+      let completed = assignments.filter(a=>a.completed);
+      let byDate = {};
+      completed.forEach(a=>{
+        let d = new Date(a.due).toISOString().split('T')[0];
+        byDate[d] = (byDate[d]||0)+1;
+      });
+      let assignDates = Object.keys(byDate).sort();
+      let assignCounts = assignDates.map(d=>byDate[d]);
+      // Pomodoro logs per day
+      let pomoByDay = {};
+      pomodoroLogs.forEach(l=>{
+        let d = new Date(l.date).toISOString().split('T')[0];
+        pomoByDay[d] = (pomoByDay[d]||0)+1;
+      });
+      let pomoDates = Object.keys(pomoByDay).sort();
+      let pomoCounts = pomoDates.map(d=>pomoByDay[d]);
+      // Distraction trend
+      let distractByDay = {};
+      pomodoroLogs.forEach(l=>{
+        let d = new Date(l.date).toISOString().split('T')[0];
+        distractByDay[d] = (distractByDay[d]||0)+l.distractions;
+      });
+      let distractDates = Object.keys(distractByDay).sort();
+      let distractCounts = distractDates.map(d=>distractByDay[d]);
+      // Pie for priorities
+      let priorityStats = {high:0, medium:0, low:0};
+      assignments.forEach(a=>priorityStats[a.priority]++);
+      // Pie for subject distribution
+      let subjectStats = {};
+      assignments.forEach(a=>{subjectStats[a.subject]=(subjectStats[a.subject]||0)+1});
+      // Render charts
+      el.innerHTML = `
+      <div class="chart-card">
+        <div class="chart-title">Assignments Completed Over Time</div>
+        <canvas id="chart-assign" width="320" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Pomodoro Sessions by Day</div>
+        <canvas id="chart-pomo" width="320" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Distractions Trend</div>
+        <canvas id="chart-distract" width="320" height="200"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Priority Distribution</div>
+        <canvas id="chart-priority" width="180" height="180"></canvas>
+      </div>
+      <div class="chart-card">
+        <div class="chart-title">Assignments by Subject</div>
+        <canvas id="chart-subject" width="180" height="180"></canvas>
+      </div>
+      `;
+      // Simple charting (no external lib, canvas based)
+      drawLineChart('chart-assign', assignDates, assignCounts, '#4f8cff');
+      drawLineChart('chart-pomo', pomoDates, pomoCounts, '#4caf50');
+      drawLineChart('chart-distract', distractDates, distractCounts, '#f44336');
+      drawPieChart('chart-priority', ['High','Medium','Low'],[priorityStats.high,priorityStats.medium,priorityStats.low], ['#f44336','#ff9800','#4caf50']);
+      let subNames = Object.keys(subjectStats), subVals = subNames.map(s=>subjectStats[s]);
+      let subColors = subNames.map((s,i)=>['#4f8cff','#ff9800','#4caf50','#f44336','#8c41fa','#21bac7','#dbe04c'][i%7]);
+      drawPieChart('chart-subject', subNames, subVals, subColors);
+    }
+    function drawLineChart(id, labels, vals, color) {
+      let c = document.getElementById(id); if (!c) return;
+      let ctx = c.getContext('2d');
+      ctx.clearRect(0,0,c.width,c.height);
+      // Axes
+      ctx.strokeStyle='#bbb'; ctx.lineWidth=1;
+      ctx.beginPath();
+      ctx.moveTo(40,10); ctx.lineTo(40,180); ctx.lineTo(310,180);
+      ctx.stroke();
+      // Labels
+      ctx.font = "12px Segoe UI";
+      ctx.fillStyle = '#888';
+      let max = Math.max(1, ...vals);
+      for (let i=0;i<=max;++i) {
+        ctx.fillText(i,8,180-i*160/max+3);
+        ctx.beginPath();
+        ctx.moveTo(38,180-i*160/max);
+        ctx.lineTo(42,180-i*160/max);
+        ctx.stroke();
+      }
+      let n = labels.length;
+      if (n<1) return;
+      for (let i=0;i<n;++i) {
+        ctx.fillText(labels[i].slice(5), 50+i*240/(n-1), 195);
+      }
+      // Line
+      ctx.strokeStyle=color; ctx.lineWidth=2.5;
+      ctx.beginPath();
+      for (let i=0;i<n;++i) {
+        let x = 40+i*240/(n-1), y = 180-vals[i]*160/max;
+        if (i===0) ctx.moveTo(x,y);
+        else ctx.lineTo(x,y);
+        // dot
+        ctx.beginPath();
+        ctx.arc(x,y,4,0,2*Math.PI);
+        ctx.fillStyle=color;
+        ctx.globalAlpha=0.77;
+        ctx.fill();
+        ctx.globalAlpha=1;
+      }
+      ctx.stroke();
+    }
+    function drawPieChart(id, labels, vals, colors) {
+      let c = document.getElementById(id); if (!c) return;
+      let ctx = c.getContext('2d');
+      ctx.clearRect(0,0,c.width,c.height);
+      let sum = vals.reduce((a,b)=>a+b,0) || 1;
+      let start=0, cx=c.width/2, cy=c.height/2, r=60;
+      for (let i=0;i<vals.length;++i) {
+        let angle = vals[i]/sum*2*Math.PI;
+        ctx.beginPath();
+        ctx.moveTo(cx,cy);
+        ctx.arc(cx,cy,r,start,start+angle);
+        ctx.closePath();
+        ctx.fillStyle=colors[i%colors.length];
+        ctx.globalAlpha=0.85;
+        ctx.fill();
+        ctx.globalAlpha=1;
+        start+=angle;
+      }
+      // Legend
+      ctx.font="12px Segoe UI";
+      for(let i=0;i<labels.length;++i) {
+        ctx.fillStyle=colors[i%colors.length];
+        ctx.fillRect(8,8+i*18,13,13);
+        ctx.fillStyle='#555';
+        ctx.fillText(labels[i]+` (${vals[i]})`, 25,20+i*18);
+      }
+    }
+
+    // --- Init rendering ---
+    function renderAll() {
+      renderAssignments();
+      renderCalendar();
+      renderReminders();
+      renderPomodoroLogs();
+      renderPlans();
+      renderResources();
+      renderCollabs();
+      renderFlashcards();
+      renderAnalytics();
+    }
+    renderAll();
+
+    // Re-render on tab switch
+    document.querySelectorAll('.nav button').forEach(btn=>{
+      btn.addEventListener('click', renderAll);
+    });
+
+    // --- Local notification (Push/Desktop) ---
+    if ('Notification' in window && Notification.permission !== 'denied') {
+      Notification.requestPermission();
+    }
+    console.log("kirubel mesfin production")
+  </script>
+</body>
+</html>

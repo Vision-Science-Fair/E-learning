@@ -5,9 +5,19 @@
 html, body { height: 100%; }
 
 body {
-  font-family: "Segoe UI", Arial, sans-serif;
-  background: linear-gradient(180deg, #2b2d2e 0%, #1e1f20 100%);
-  color: #eef8fb;
+  font-family: 'Segoe UI', Arial, sans-serif;
+  color: #eaf6ff;
+  background-color: #0b1224;
+  background-image:
+      radial-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      radial-gradient(circle at top, rgba(0,180,255,0.12), transparent 65%);
+  background-size:
+      26px 26px,
+      100% 100%;
+  background-position:
+      0 0,
+      center;
+  background-attachment: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -18,11 +28,11 @@ body {
 #division {
   width: 360px;
   max-width: 96%;
-  background: #171717;
   padding: 22px;
   border-radius: 10px;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
-  border: 1px solid rgba(255,255,255,0.04);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(21, 89, 118, 0.35);
+  box-shadow: 0 -8px 30px rgba(0,0,0,0.5);
 }
 
 
@@ -53,14 +63,14 @@ body {
   padding: 10px 12px;
   border-radius: 6px;
   border: 1px solid #333;
-  background: #101010;
+  background: rgba(0, 40, 108, 0.211);
   color: #eafcff;
   font-size: 0.95rem;
   outline: none;
 }
 
 #division input::placeholder {
-  color: #8eaeb3;
+  color: #8eaeb390;
 }
 #division input:focus {
   border-color: #21daff;

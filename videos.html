@@ -12,8 +12,7 @@
         <a href="home.html">Home</a>
         <a href="grades.html">Grades</a>
         <a href="subjects.html">Subjects</a>
-        <a href="videos.html" class="active">Videos</a>
-        <a href="books.html">Books</a>
+        <a href="quiz.html">Quizzes</a>
         <a href="about.html">About</a>
     </nav>
 
@@ -27,7 +26,17 @@
 
         <p id="no-videos" class="muted hidden">No videos found for this subject yet.</p>
     </main>
-
+    <!--footer-->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 LearnNest. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Contact</a>
+            </div>
+        </div>
+    </footer>
     <script>
         function capitalizeWords(str) {
             return str ? str.replace(/-/g, ' ').split(' ').map(s => s.charAt(0).toUpperCase() + s.slice(1)).join(' ') : '';
