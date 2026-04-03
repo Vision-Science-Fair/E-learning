@@ -9,8 +9,8 @@ body {
   color: #eaf6ff;
   background-color: #0b1224;
   background-image:
-        radial-gradient(rgba(150, 150, 150, 0.308) 1px, transparent 1px),
-        radial-gradient(circle at top, rgba(0,180,255,0.12), transparent 65%);
+      radial-gradient(rgba(150, 150, 150, 0.308) 1px, transparent 1px),
+      radial-gradient(circle at top, rgba(0,180,255,0.12), transparent 65%);
   background-size:
       26px 26px,
       100% 100%;
