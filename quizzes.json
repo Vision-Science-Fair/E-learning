@@ -15,11 +15,6 @@
         "question": "Which sentence is in past tense?",
         "options": ["He plays football.", "He played football.", "He will play football.", "He is playing football."],
         "answer": "He played football."
-      },
-      {
-        "question": "Which sentence is written correctly?",
-        "options": ["She don’t like playing football.", "She doesn’t likes playing football.", "She doesn’t like playing football.", "She don’t likes playing football."],
-        "answer": "She doesn’t like playing football."
       }
     ],
     "8": [
@@ -83,7 +78,131 @@
       }
     ]
   },
+  "citizenship": {
+    "7": [
+      {
+        "question": "What is citizenship?",
+        "options": ["Owning land", "Being a member of a country with rights and duties", "Having a job", "Living in a city"],
+        "answer": "Being a member of a country with rights and duties"
+      },
+      {
+        "question": "Which sentence is in past tense?",
+        "options": ["Equality", "Violence", "Corruption", "Discrimination"],
+        "answer": "Equality"
+      }
+    ],
+    "8": [
+      {
+        "question": "What does democracy mean?",
+        "options": ["Rule by one person", "Rule by the people", "Rule by the military", "Rule by kings"],
+        "answer": "Rule by the people"
+      },
+      {
+        "question": "Which institution makes laws in a country?",
+        "options": ["Judiciary", "Executive", "Legislature", "Police"],
+        "answer": "Legislature"
+      }
+    ],
+    "9": [
+      {
+        "question": "Which of the following is a responsibility of a citizen?",
+        "options": ["Ignoring laws", "Respecting laws", "Avoiding school", "Breaking rules"],
+        "answer": "Respecting laws"
+      },
+      {
+        "question": "What is the rule of law?",
+        "options": ["Leaders are above the law", "Laws apply equally to everyone", "Only citizens follow laws", "Laws are optional"],
+        "answer": "Laws apply equally to everyone"
+      }
+    ],
+    "10": [
+      {
+        "question": "Which of the following is a responsibility of a citizen?",
+        "options": ["Ignoring laws", "Respecting laws", "Avoiding school", "Breaking rules"],
+        "answer": "Respecting laws"
+      },
+      {
+        "question": "What is the rule of law?",
+        "options": ["Leaders are above the law", "Laws apply equally to everyone", "Only citizens follow laws", "Laws are optional"],
+        "answer": "Laws apply equally to everyone"
+      }
+    ]    
+  },
+  "amharic": {
+    "7": [
+      {
+        "question": "የ“መጽሐፍ” ትርጉም ምንድነው?",
+        "options": ["ውሃ", "መፅሐፍ", "ቤት", "እንጀራ"],
+        "answer": "መፅሐፍ"
+      },
+      {
+        "question": "“እሷ ትሄዳለች” በሚለው ነገር የተጠቀሰው ግስ የትኛው ነው?",
+        "options": ["እሷ", "ትሄዳለች", "ነው", "በ"],
+        "answer": "ትሄዳለች"
+      }
+    ],
+    "8": [
+      {
+        "question": "“ታላቅ” የሚለው ቃል ተመሳሳይ ትርጉም ያለው የትኛው ነው?",
+        "options": ["ትንሽ", "ትልቅ", "ጥቁር", "ፈጣን"],
+        "answer": "ትልቅ"
+      },
+      {
+        "question": "የሚከተለው ከነገር አንዱ ሙሉ አ.ነገር የሆነው የትኛው ነው?",
+        "options": ["በጣም", "ወደ ቤት", "እኔ ወደ ቤት ሄድኩ", "ትልቅ ቤት"],
+        "answer": "እኔ ወደ ቤት ሄድኩ"
+      }
+    ],
+    "9": [
+      {
+        "question": "“እኛ” የሚለው ቃል የትኛው ዓይነት ቃል ነው?",
+        "options": ["ስም", "ግስ", "ተውላጠ ስም", "ተውሳክ"],
+        "answer": "ተውላጠ ስም"
+      },
+      {
+        "question": "“እሱ መጽሐፍ አነበበ” በሚለው ነገር ግስ የትኛው ነው?",
+        "options": ["እሱ", "መጽሐፍ", "አነበበ", "ነው"],
+        "answer": "አነበበ"
+      }
+    ],
+    "10": [
+      {
+        "question": "“ሰላም እንዴት ነህ?” የሚለው ነገር የትኛው ዓይነት ነገር ነው?",
+        "options": ["ጥያቄ ነገር", "ትእዛዝ ነገር", "ማብራሪያ ነገር", "አዋጅ ነገር"],
+        "answer": "ጥያቄ ነገር"
+      },
+      {
+        "question": "“በፍጥነት ሮጠ” በሚለው ነገር ተውሳክ የትኛው ነው?",
+        "options": ["በፍጥነት", "ሮጠ", "ነገር", "እሱ"],
+        "answer": "በፍጥነት"
+      }
+    ]
+  },
   "mathematics": {
+      "7": [
+      {
+        "question": "What is the value of 3/4 + 2/5?",
+        "options": ["5/9", "23/20", "11/10", "7/20"],
+        "answer": "23/20"
+      },
+      {
+        "question": "What is the perimeter of a rectangle with length 8 cm and width 5 cm?",
+        "options": ["13 cm", "26 cm", "40 cm", "16 cm"],
+        "answer": "26 cm"
+      }
+    ],
+      "8": [
+      {
+        "question": "Solve for 2x+5=17",
+        "options": ["x=5", "x=6", "x=7", "x=8"],
+        "answer": "x=6"
+      },
+      {
+        "question": "What is the value of 𝑥^2 when x=−4?",
+        "options": ["-16", "8", "16", "-8"],
+        "answer": "7"
+      }
+    ],
     "9": [
       {
         "question": "What is 8 × 7?",
@@ -109,6 +228,32 @@
       }
     ]
   },
+  "social studies": {
+      "7": [
+      {
+        "question": "Which of the following was a major effect of the Industrial Revolution?",
+        "options": ["Decrease in urban populations", "Increase in agricultural work", "Growth of cities and factories", "End of colonial empires"],
+        "answer": "Growth of cities and factories"
+      },
+      {
+        "question": "What is the primary purpose of the United Nations?",
+        "options": ["To create trade laws for countries", "To maintain international peace and security", "To provide military support to one nation", "To control the world economy"],
+        "answer": "To maintain international peace and security"
+      }
+    ],
+      "8": [
+      {
+        "question": "Which document first established the principle that the king was not above the law?",
+        "options": ["The Magna Carta", "The U.S. Constitution", "The Bill of Rights", "The Declaration of Independence"],
+        "answer": "The Magna Carta"
+      },
+      {
+        "question": "What was the main reason European nations colonized Africa in the late 19th century?",
+        "options": ["To spread democracy", "To access natural resources and markets", "To form alliances with African kingdoms", "To stop other continents from developing"],
+        "answer": "To access natural resources and markets"
+      }
+    ]
+  },
   "history": {
     "9": [
       {
@@ -121,6 +266,318 @@
         "options": ["Ethiopia", "Sudan", "Kenya", "Eritrea"],
         "answer": "Ethiopia"
       }
+    ],
+    "10": [
+      {
+        "question": "Which event is widely considered the beginning of World War I?",
+        "options": ["The invasion of Poland", "The assassination of Archduke Franz Ferdinand assassination", "The signing of the Treaty of Versailles", "The Russian Revolution"],
+        "answer": "The assassination of Archduke Franz Ferdinand assassination"
+      },
+      {
+        "question": "Which ancient civilization is credited with building the pyramids at Giza?",
+        "options": ["The Romans", "The Greeks", "The Egyptians", "The Mesopotamians"],
+        "answer": "The Egyptians"
+      }
+    ],
+    "11": [
+      {
+        "question": "Which factor was a major cause of the French Revolution?",
+        "options": ["Strong economic growth and prosperity", "High taxes and social inequality", "Peaceful relations with neighboring countries", "A powerful and popular monarchy"],
+        "answer": "High taxes and social inequality"
+      },
+      {
+        "question": "What was one major goal of European imperialism in Africa during the 19th century?",
+        "options": ["To promote local self-government", "To gain resources and expand economic power", "To spread democracy peacefully", "To reduce global trade"],
+        "answer": "To gain resources and expand economic power"
+      }
+    ],
+    "12": [
+      {
+        "question": "Which Cold War event symbolized the division between East and West Germany?",
+        "options": ["The Cuban Missile Crisis", "The formation of NATO", "The construction of the Berlin Wall construction", "The Korean War"],
+        "answer": "The construction of the Berlin Wall construction"
+      },
+      {
+        "question": "Which organization was created after World War II to promote international peace and cooperation?",
+        "options": ["The League of Nations", "The European Union", "The African Union", "The United Nations"],
+        "answer": "The United Nations"
+      }
     ]
-  }
+  },
+      "general science": {
+      "7": [
+      {
+        "question": "Which of the following is a renewable source of energy?",
+        "options": ["Coal", "Oil", "Solar energy", "Natural gas"],
+        "answer": "Solar energy"
+      },
+      {
+        "question": "What type of simple machine is a seesaw?",
+        "options": ["Lever", "Pulley", "Inclined plane", "Wheel and axle"],
+        "answer": "Lever"
+      }
+    ],
+      "8": [
+      {
+        "question": "Which part of the plant is primarily responsible for photosynthesis?",
+        "options": ["Roots", "Stem", "Leaves", "Flowers"],
+        "answer": "Leaves"
+      },
+      {
+        "question": "Which of the following best describes an element?",
+        "options": ["A substance made of only one type of atom", "A mixture of different substances", "A substance that can be broken down into simpler substances", "A compound made of two or more elements"],
+        "answer": "A substance made of only one type of atom"
+      }
+    ]
+  },
+    "chemistry": {
+      "9": [
+      {
+        "question": "Which of the following is a physical change?",
+        "options": ["Burning wood", "Rusting iron", "Melting ice", "Cooking food"],
+        "answer": "Melting ice"
+      },
+      {
+        "question": "What is the chemical symbol for sodium?",
+        "options": ["So", "Na", "S", "Sn"],
+        "answer": "Na"
+      }
+    ],
+      "10": [
+      {
+        "question": "What type of bond involves the sharing of electrons?",
+        "options": ["Ionic bond", "Covalent bond", "Metallic bond", "Hydrogen bond"],
+        "answer": "Covalent bond"
+      },
+      {
+        "question": "What is the pH of a neutral solution?",
+        "options": ["0", "5", "7", "14"],
+        "answer": "7"
+      }
+    ],
+      "11": [
+      {
+        "question": "According to the Ideal Gas Law, what happens to pressure if volume decreases (temperature constant)?",
+        "options": ["Pressure decreases", "Pressure increases", "Pressure remains constant", "Pressure becomes zero"],
+        "answer": "Pressure increases"
+      },
+      {
+        "question": "Which orbital has a spherical shape?",
+        "options": ["p orbital", "d orbital", "s orbital", "f orbital"],
+        "answer": "s orbital"
+      }
+    ],
+     "12": [
+      {
+        "question": "What is the oxidation state of oxygen in H₂O?",
+        "options": ["0", "-1", "-2", "+2"],
+        "answer": "-2"
+      },
+      {
+        "question": "Which of the following is an example of an organic compound?",
+        "options": ["NaCl", "CO₂", "CH₄", "H₂O"],
+        "answer": "CH₄"
+      }
+    ]
+  },
+    "biology": {
+      "9": [
+      {
+        "question": "Which of the following organelles is responsible for producing energy in the form of ATP?",
+        "options": ["Nucleus", "Ribosome", "Mitochondrion", "Golgi apparatus"],
+        "answer": "Mitochondrion"
+      },
+      {
+        "question": "Which of these best describes the main function of the cell membrane?",
+        "options": ["Store genetic information", "Control the movement of substances in and out of the cell", "Produce proteins", "Digest cellular waste"],
+        "answer": "Control the movement of substances in and out of the cell"
+      }
+    ],
+      "10": [
+      {
+        "question": "Which macromolecule is the primary source of energy for living organisms?",
+        "options": ["Proteins", "Carbohydrates", "Lipids", "Nucleic acids"],
+        "answer": "Carbohydrates"
+      },
+      {
+        "question": "Which of the following is an example of a prokaryotic organism?",
+        "options": ["Amoeba", "Bacterium", "Fungi", "Algae"],
+        "answer": "Bacterium"
+      }
+    ],
+      "11": [
+      {
+        "question": "Which type of RNA carries amino acids to the ribosome during protein synthesis?",
+        "options": ["rRNA", "tRNA", "mRNA", "snRNA"],
+        "answer": "tRNA"
+      },
+      {
+        "question": "In human genetics, if a trait is sex-linked and recessive, it is most likely to appear in:",
+        "options": ["Females only", "Males only", "Both equally", "Neither"],
+        "answer": "Males only"
+      }
+    ],
+     "12": [
+      {
+        "question": "During DNA replication, which enzyme is responsible for unwinding the double helix?",
+        "options": ["DNA polymerase", "Helicase", "Ligase", "RNA polymerase"],
+        "answer": "Helicase"
+      },
+      {
+        "question": "Which process in plants converts light energy into chemical energy?",
+        "options": ["Cellular respiration", "Transpiration", "Photosynthesis", "Glycolysis"],
+        "answer": "Photosynthesis"
+      }
+    ]
+  },
+    "physics": {
+      "9": [
+      {
+        "question": "What is the SI unit of force?",
+        "options": ["Joule", "Watt", "Newton", "Pascal"],
+        "answer": "Newton"
+      },
+      {
+        "question": "Which of the following is a vector quantity?",
+        "options": ["Speed", "Distance", "Time", "Velocity"],
+        "answer": "Velocity"
+      }
+    ],
+      "10": [
+      {
+        "question": "According to Newton's First Law of Motion, an object will remain at rest or in uniform motion unless:",
+        "options": ["Proteins", "Carbohydrates", "Lipids", "Nucleic acids"],
+        "answer": "Carbohydrates"
+      },
+      {
+        "question": "Which of the following is an example of a prokaryotic organism?",
+        "options": ["A force acts on it", "Gravity disappears", "It gains mass", "Time stops"],
+        "answer": "A force acts on it"
+      }
+    ],
+      "11": [
+      {
+        "question": "What type of energy is stored in a stretched spring?",
+        "options": ["Kinetic energy", "Chemical energy", "Elastic potential energy", "Thermal energy"],
+        "answer": "Elastic potential energy"
+      },
+      {
+        "question": "What is the unit of electric current?",
+        "options": ["Volt", "Ampere", "Ohm", "Coulomb"],
+        "answer": "Ampere"
+      }
+    ],
+     "12": [
+      {
+        "question": "According to Einstein's Theory of Relativity, what is the relationship between mass and energy?",
+        "options": ["E = mc²", "E = mv", "E = mgh", "E = ½mv²"],
+        "answer": "E = mc²"
+      },
+      {
+        "question": "What phenomenon explains the bending of light when it passes from one medium to another?",
+        "options": ["Reflection", "Refraction", "Diffraction", "Interference"],
+        "answer": "Refraction"
+      }
+    ]
+  },
+    "economics": {
+      "9": [
+      {
+        "question": "What is the basic economic problem?",
+        "options": ["Inflation", "Scarcity", "Trade", "Taxation"],
+        "answer": "Scarcity"
+      },
+      {
+        "question": "Which of the following is a factor of production?",
+        "options": ["Money", "Labor", "Profit", "Price"],
+        "answer": "Labor"
+      }
+    ],
+      "10": [
+      {
+        "question": "What does demand refer to in economics?",
+        "options": ["The supply of goods", "The desire and ability to buy a product", "The cost of producing goods", "Government control of prices"],
+        "answer": "The desire and ability to buy a product"
+      },
+      {
+        "question": "In a market economy, prices are mainly determined by:",
+        "options": ["Government", "Producers only", "Supply and demand", "Imports"],
+        "answer": "Supply and demand"
+      }
+    ],
+      "11": [
+      {
+        "question": "Which curve shows the relationship between price and quantity demanded?",
+        "options": ["Supply curve", "Demand curve", "Cost curve", "Revenue curve"],
+        "answer": "Demand curve"
+      },
+      {
+        "question": "What is inflation?",
+        "options": ["Decrease in prices", "Increase in unemployment", "General increase in price levels", "Decrease in production"],
+        "answer": "General increase in price levels"
+      }
+    ],
+     "12": [
+      {
+        "question": "Which of the following is a macroeconomic issue?",
+        "options": ["Price of a single product", "Consumer choice", "National unemployment", "Individual income"],
+        "answer": "National unemployment"
+      },
+      {
+        "question": "What is the main role of a central bank?",
+        "options": ["Produce goods", "Control money supply", "Set wages", "Export products"],
+        "answer": "Control money supply"
+      }
+    ]
+  },
+    "geography": {
+      "9": [
+      {
+        "question": "What is the main source of the Earth's freshwater?",
+        "options": ["Oceans", "Rivers", "Glaciers", "Lakes"],
+        "answer": "Glaciers"
+      },
+      {
+        "question": "Which type of climate is characterized by hot, dry summers and mild, wet winters?",
+        "options": ["Tropical climate", "Desert climate", "Mediterranean climate", "Polar climate"],
+        "answer": "Mediterranean climate"
+      }
+    ],
+      "10": [
+      {
+        "question": "Which layer of the Earth is the outermost?",
+        "options": ["Core", "Mantle", "Crust", "Inner core"],
+        "answer": "Crust"
+      },
+      {
+        "question": "Which of the following is an example of a prokaryotic organism?",
+        "options": ["Amoeba", "Bacterium", "Fungi", "Algae"],
+        "answer": "Bacterium"
+      }
+    ],
+      "11": [
+      {
+        "question": "What is the process by which water changes from liquid to vapor?",
+        "options": ["Condensation", "Evaporation", "Precipitation", "Infiltration"],
+        "answer": "Evaporation"
+      },
+      {
+        "question": "Which line divides the Earth into Northern and Southern Hemispheres?",
+        "options": ["Prime Meridian", "Tropic of Cancer", "Equator", "Arctic Circle"],
+        "answer": "Equator"
+      }
+    ],
+     "12": [
+      {
+        "question": "Which of the following is a non-renewable resource?",
+        "options": ["Solar energy", "Wind energy", "Coal", "Hydropower"],
+        "answer": "Coal"
+      },
+      {
+        "question": "What does OPEC primarily control?",
+        "options": ["Food supply", "Oil production", "Water resources", "Forest conservation"],
+        "answer": "Oil production"
+      }
+    ]
+  }   
 }
