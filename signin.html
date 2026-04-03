@@ -12,11 +12,44 @@
         <form id="form">
             <h2>Log In</h2>
             <label for="email">Email:</label>
-            <input id="email" type="email" placeholder="example@gmail.com">
-            <label for="passowrd">Password:</label>
-            <input id="passowrd" type="password" placeholder="enter your password">
+            <input id="email" type="email" placeholder="example@gmail.com" required>
+            <label for="password">Password:</label>
+            <input id="password" type="password" placeholder="enter your password" required>
             <button type="submit">Sign in</button>
+            <button type="button" id="google-btn" class="google-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" height="18" alt="Google">
+                Sign in with Google
+            </button>
         </form>
+        <p>Don't have an account? <a href="signUp.html">Sign up</a></p>
         </div>
+
+        <script type="module">
+            import { signin, googleSignIn } from './backend/auth.js';
+
+            const form = document.getElementById('form');
+            const emailInput = document.getElementById('email');
+            const passwordInput = document.getElementById('password');
+            const googleBtn = document.getElementById('google-btn');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                try {
+                    await signin(emailInput.value, passwordInput.value);
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+
+            googleBtn.addEventListener('click', async () => {
+                try {
+                    await googleSignIn();
+                    window.location.href = 'index.html';
+                } catch (error) {
+                    alert(error.message);
+                }
+            });
+        </script>
 </body>
 </html>

@@ -121,6 +121,7 @@
             align-items: center;
             background: linear-gradient(90deg, #38bdf8, #e0f2fe);
             -webkit-background-clip: text;
+            background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .footer {
@@ -168,13 +169,39 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="grades.html">Grades</a>
         <a href="subjects.html">Subjects</a>
         <a href="quiz.html" class="active">Quizzes</a>
+        <a href="profile.html">Profile</a>
+        <a href="parent-dashboard.html">Parent Control</a>
         <a href="BIT-Students\index.html">Tasks</a>
         <a href="about.html">About</a>
     </nav>
+    <div class="log">
+       <a href="signUp.html">Sign up</a>
+    </div>
+
+    <script type="module">
+        import { onAuthUpdate, logout, protectRoute, saveQuizResult } from './backend/auth.js';
+        
+        // Protect this page
+        protectRoute();
+
+        window.saveQuizResult = saveQuizResult; // Expose to regular script
+
+        const authContainer = document.querySelector('.log');
+        onAuthUpdate((user) => {
+            window.currentUser = user; // Store user globally for the quiz script
+            if (user) {
+                authContainer.innerHTML = `<button id="logout-btn" style="background:none; border: 1px solid #21daff; color: #21daff; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: 600;">Log out</button>`;
+                document.getElementById('logout-btn').addEventListener('click', async () => {
+                    await logout();
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
 
     <main class="container">
         <div class="main-title">
@@ -321,8 +348,17 @@
         });
 
         let score = 0;
+        let errors = [];
         for (let i = 0; i < state.questions.length; i++) {
-            if (selected[i] && selected[i] === state.questions[i].answer) score += 1;
+            if (selected[i] && selected[i] === state.questions[i].answer) {
+                score += 1;
+            } else {
+                errors.push({
+                    question: state.questions[i].question,
+                    correctAnswer: state.questions[i].answer,
+                    userAnswer: selected[i] || 'No answer'
+                });
+            }
         }
 
         const percentage = state.questions.length ? Math.round((score / state.questions.length) * 100) : 0;
@@ -341,6 +377,17 @@
         });
 
         popupDetails.textContent = explanation;
+
+        // Backend Integration: Save Quiz Result with errors
+        if (window.currentUser && window.saveQuizResult) {
+            window.saveQuizResult(window.currentUser.uid, window.currentUser.email, {
+                score: score,
+                total: state.questions.length,
+                subject: state.subject,
+                grade: state.grade,
+                errors: errors // Now saving specific errors!
+            });
+        }
 
         quizResult.classList.add('hidden');
         popup.classList.remove('popup-hidden');

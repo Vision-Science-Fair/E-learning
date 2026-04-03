@@ -11,17 +11,57 @@
     <div id="division">
         <form id="form">
             <h2>Create Account</h2>
-            <label for="first">First Name:</label>
-            <input id="first" type="text" placeholder="enter your first name">
-            <label for="last">Last Name:</label>
-            <input id="last" type="text" placeholder="enter your last name">
+            <div style="display: flex; gap: 10px;">
+                <div style="flex: 1;">
+                    <label for="first">First Name:</label>
+                    <input id="first" type="text" placeholder="First Name" required>
+                </div>
+                <div style="flex: 1;">
+                    <label for="last">Last Name:</label>
+                    <input id="last" type="text" placeholder="Last Name" required>
+                </div>
+            </div>
             <label for="email">Email:</label>
-            <input id="email" type="email" placeholder="example@gmail.com">
-            <label for="passowrd">Password:</label>
-            <input id="passowrd" type="password" placeholder="enter your password">
+            <input id="email" type="email" placeholder="example@gmail.com" required>
+            <label for="password">Password:</label>
+            <input id="password" type="password" placeholder="enter your password" required>
             <button type="submit">Sign up</button>
+            <button type="button" id="google-signup" class="google-btn">
+                <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" height="18" alt="Google">
+                Sign up with Google
+            </button>
         </form>
         <p>Already have an account?<a href="signin.html"> Log in</a></p>
     </div>
+
+    <script type="module">
+        import { signup, googleSignIn } from './backend/auth.js';
+
+        const form = document.getElementById('form');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const googleBtn = document.getElementById('google-signup');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            try {
+                // For simple Firebase auth, we only need email and password. 
+                // We could save first/last name to Firestore later if needed.
+                await signup(emailInput.value, passwordInput.value);
+                window.location.href = 'index.html';
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+
+        googleBtn.addEventListener('click', async () => {
+            try {
+                await googleSignIn();
+                window.location.href = 'index.html';
+            } catch (error) {
+                alert(error.message);
+            }
+        });
+    </script>
 </body>
 </html>

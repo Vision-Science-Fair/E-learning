@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - LearnNest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/i.png" type="image/png">
+    <style>
+        .profile-container {
+            max-width: 800px;
+            margin: 2rem auto;
+            width: 90%;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .stat-card {
+            background: rgba(15, 23, 42, 0.7);
+            padding: 1.5rem;
+            border-radius: 14px;
+            border: 1px solid rgba(56, 189, 248, 0.2);
+            text-align: center;
+        }
+        .stat-card h3 {
+            color: #38bdf8;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+        .stat-card p {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .history-section {
+            margin-top: 3rem;
+            background: rgba(15, 23, 42, 0.6);
+            padding: 2rem;
+            border-radius: 18px;
+            border: 1px solid rgba(56, 189, 248, 0.1);
+        }
+        .history-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        .history-table th, .history-table td {
+            text-align: left;
+            padding: 1rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+        .history-table th {
+            color: #38bdf8;
+            font-weight: 600;
+        }
+        .score-badge {
+            padding: 0.3rem 0.8rem;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .score-high { background: rgba(34, 197, 94, 0.2); color: #4ade80; }
+        .score-mid { background: rgba(234, 179, 8, 0.2); color: #facc15; }
+        .score-low { background: rgba(239, 68, 68, 0.2); color: #f87171; }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html">Home</a>
+        <a href="grades.html">Grades</a>
+        <a href="subjects.html">Subjects</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="profile.html" class="active">Profile</a>
+        <a href="parent-dashboard.html">Parent Control</a>
+        <a href="BIT-Students\index.html">Tasks</a>
+        <a href="about.html">About</a>
+    </nav>
+
+    <div class="log">
+       <a href="#" id="logout-link">Log out</a>
+    </div>
+
+    <main class="profile-container">
+        <div class="card">
+            <h1 style="font-size: 2rem; margin-bottom: 0.5rem;">User Profile</h1>
+            <p id="user-email" class="text" style="margin-left: 0;"></p>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Quizzes Solved</h3>
+                <p id="total-quizzes">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Avg. Score</h3>
+                <p id="avg-score">0%</p>
+            </div>
+            <div class="stat-card">
+                <h3>Best Subject</h3>
+                <p id="best-subject" style="font-size: 1.2rem; padding-top: 0.8rem;">-</p>
+            </div>
+        </div>
+
+        <div class="history-section">
+            <h2>Recent Activity</h2>
+            <div style="overflow-x: auto;">
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Grade</th>
+                            <th>Score</th>
+                            <th>Date</th>
+                        </tr>
+                    </thead>
+                    <tbody id="history-body">
+                        <tr><td colspan="4" style="text-align:center;">Loading your history...</td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <p>&copy; 2025 LearnNest. All rights reserved.</p>
+    </footer>
+
+    <script type="module">
+        import { onAuthUpdate, logout, protectRoute, getUserStats } from './backend/auth.js';
+        
+        protectRoute();
+
+        const userEmail = document.getElementById('user-email');
+        const historyBody = document.getElementById('history-body');
+        const totalQuizzesEl = document.getElementById('total-quizzes');
+        const avgScoreEl = document.getElementById('avg-score');
+        const bestSubjectEl = document.getElementById('best-subject');
+        
+        onAuthUpdate(async (user) => {
+            if (user) {
+                userEmail.textContent = user.email;
+                
+                const stats = await getUserStats(user.uid);
+                renderStats(stats);
+            }
+        });
+
+        function renderStats(stats) {
+            if (stats.length === 0) {
+                historyBody.innerHTML = '<tr><td colspan="4" style="text-align:center;">No quizzes completed yet.</td></tr>';
+                return;
+            }
+
+            totalQuizzesEl.textContent = stats.length;
+            
+            let totalPercentage = 0;
+            let subjectScores = {};
+
+            const rows = stats.map(s => {
+                const percentage = Math.round((s.score / s.total) * 100);
+                totalPercentage += percentage;
+
+                // Track subject scores for best subject
+                if (!subjectScores[s.subject]) subjectScores[s.subject] = { total: 0, count: 0 };
+                subjectScores[s.subject].total += percentage;
+                subjectScores[s.subject].count++;
+
+                const date = s.timestamp ? new Date(s.timestamp.seconds * 1000).toLocaleDateString() : 'Just now';
+                const badgeClass = percentage >= 80 ? 'score-high' : (percentage >= 50 ? 'score-mid' : 'score-low');
+
+                return `
+                    <tr>
+                        <td style="text-transform: capitalize;">${s.subject.replace(/-/g, ' ')}</td>
+                        <td>Grade ${s.grade}</td>
+                        <td><span class="score-badge ${badgeClass}">${s.score}/${s.total} (${percentage}%)</span></td>
+                        <td>${date}</td>
+                    </tr>
+                `;
+            }).join('');
+
+            historyBody.innerHTML = rows;
+            avgScoreEl.textContent = Math.round(totalPercentage / stats.length) + '%';
+
+            // Calculate Best Subject
+            let bestSub = '-';
+            let maxAvg = -1;
+            for (let sub in subjectScores) {
+                let avg = subjectScores[sub].total / subjectScores[sub].count;
+                if (avg > maxAvg) {
+                    maxAvg = avg;
+                    bestSub = sub.replace(/-/g, ' ');
+                }
+            }
+            bestSubjectEl.textContent = bestSub;
+        }
+
+        document.getElementById('logout-link').addEventListener('click', async (e) => {
+            e.preventDefault();
+            await logout();
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>

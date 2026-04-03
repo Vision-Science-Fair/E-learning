@@ -106,3 +106,32 @@ body {
   #division h2 { font-size: 1.1rem; }
   #division input, #division button { padding: 9px; }
 }
+
+/* Google Button Styles */
+.google-btn {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  color: #aeeffd;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.google-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #21daff;
+}
+
+.google-btn img {
+  filter: drop-shadow(0 0 2px rgba(255,255,255,0.2));
+}

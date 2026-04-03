@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnNest</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="img/i.png" type="image/png">
+</head>
+<body>
+    <nav class="nav">
+        <a href="index.html"  class="active">Home</a>
+        <a href="grades.html">Grades</a>
+        <a href="subjects.html">Subjects</a>
+        <a href="quiz.html">Quizzes</a>
+        <a href="profile.html">Profile</a>
+        <a href="parent-dashboard.html">Parent Control</a>
+        <a href="BIT-Students\index.html">Tasks</a>
+        <a href="about.html">About</a>
+    </nav>
+    <div class="log">
+      <a href="signUp.html">Sign up</a>
+    </div> 
+    </div> 
+  <div class="hero">
+  <div class="overlay">
+    <h1 class="title">LearnNest</h1>
+    <p class="text">A Modern Nest For Growing Minds</p>
+  </div>
+</div>
+<div class="start-btn-container">
+  <button class="button" onclick="window.location.href='grades.html'">Get Started</button> <br>
+          <a href="https://portal-video.vercel.app" class="button" style="margin-left: 10px;
+          text-decoration: none;">
+  Video Class
+</a>
+
+</div>
+<footer class="footer">
+    <div class="footer-content">
+        <p>&copy; 2025 LearnNest. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+</footer>
+
+    <script type="module">
+        import { onAuthUpdate, logout } from './backend/auth.js';
+
+        const authContainer = document.querySelector('.log');
+        const navLinks = document.querySelectorAll('.nav a');
+
+        // Nav protection logic
+        const protectedRoutes = ['grades.html', 'subjects.html', 'quiz.html', 'BIT-Students/index.html'];
+
+        onAuthUpdate((user) => {
+            if (user) {
+                // User is signed in
+                authContainer.innerHTML = `<button id="logout-btn" style="background:none; border: 1px solid #21daff; color: #21daff; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: 600;">Log out</button>`;
+                document.getElementById('logout-btn').addEventListener('click', async () => {
+                    await logout();
+                    window.location.reload();
+                });
+            } else {
+                // User is signed out
+                authContainer.innerHTML = `<a href="signUp.html">Sign up</a>`;
+            }
+
+            // Click handling for navigation
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    const isProtected = protectedRoutes.some(route => href.includes(route));
+                    
+                    if (!user && isProtected) {
+                        e.preventDefault();
+                        alert('Please sign in to access this page.');
+                        window.location.href = 'signin.html';
+                    }
+                });
+            });
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

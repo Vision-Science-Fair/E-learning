@@ -9,10 +9,12 @@
 </head>
 <body>
     <nav class="nav">
-        <a href="home.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="grades.html" class="active">Grades</a>
         <a href="subjects.html">Subjects</a>
         <a href="quiz.html">Quizzes</a>
+        <a href="profile.html">Profile</a>
+        <a href="parent-dashboard.html">Parent Control</a>
         <a href="BIT-Students\index.html">Tasks</a>
         <a href="about.html">About</a>
     </nav>
@@ -83,6 +85,24 @@
             </div>
         </div>
     </footer>
+
+    <script type="module">
+        import { onAuthUpdate, logout, protectRoute } from './backend/auth.js';
+        
+        // Protect this page
+        protectRoute();
+
+        const authContainer = document.querySelector('.log');
+        onAuthUpdate((user) => {
+            if (user) {
+                authContainer.innerHTML = `<button id="logout-btn" style="background:none; border: 1px solid #21daff; color: #21daff; padding: 5px 15px; border-radius: 20px; cursor: pointer; font-weight: 600;">Log out</button>`;
+                document.getElementById('logout-btn').addEventListener('click', async () => {
+                    await logout();
+                    window.location.href = 'index.html';
+                });
+            }
+        });
+    </script>
 <script src="grades.js"></script>
 </body>
 </html>
