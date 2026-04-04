@@ -66,7 +66,10 @@ export const onAuthUpdate = (callback) => {
 export const protectRoute = () => {
     onAuthStateChanged(auth, (user) => {
         if (!user) {
-            window.location.href = 'signin.html';
+            // Check if we are in a subdirectory (like BIT-Students)
+            const path = window.location.pathname;
+            const redirectPath = path.includes('/BIT-Students/') ? '../signin.html' : 'signin.html';
+            window.location.href = redirectPath;
         }
     });
 };

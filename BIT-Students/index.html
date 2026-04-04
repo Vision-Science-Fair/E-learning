@@ -562,6 +562,10 @@
   <div class="container">
     <header>
       <h1>Assignment Tracker</h1>
+      <label class="switch">
+        <input type="checkbox" id="darkModeToggle">
+        <span class="slider"></span> Dark Mode
+      </label>
       <div>
         <nav class="tab-nav">
           <button class="active" data-tab="dashboard">Dashboard</button>
@@ -827,20 +831,28 @@
 
     // --- Dark mode ---
     function setDarkMode(on) {
+      darkMode = on;
       document.body.classList.toggle('dark', on);
       localStorage.setItem('darkMode', on);
-      document.getElementById('darkModeToggle').checked = on;
+      const t = document.getElementById('darkModeToggle');
+      if (t) t.checked = on;
+      // Re-render analytics if visible
+      const anal = document.getElementById('analyticsTab');
+      if (anal && anal.style.display !== 'none') renderAnalytics();
     }
     setDarkMode(darkMode);
 
-    document.getElementById('darkModeToggle').addEventListener('change', e=>{
-      setDarkMode(e.target.checked);
-    });
+    const dmt = document.getElementById('darkModeToggle');
+    if (dmt) {
+      dmt.addEventListener('change', e=>{
+        setDarkMode(e.target.checked);
+      });
+    }
 
     // --- Navigation ---
-    document.querySelectorAll('.nav button').forEach(btn=>{
+    document.querySelectorAll('.tab-nav button').forEach(btn=>{
       btn.onclick = ()=>{
-        document.querySelectorAll('.nav button').forEach(b=>b.classList.remove('active'));
+        document.querySelectorAll('.tab-nav button').forEach(b=>b.classList.remove('active'));
         btn.classList.add('active');
         let tab = btn.dataset.tab;
         document.querySelectorAll('.tab-content').forEach(sec=>sec.style.display='none');
@@ -1373,7 +1385,7 @@
       ctx.stroke();
       // Labels
       ctx.font = "12px Segoe UI";
-      ctx.fillStyle = '#888';
+      ctx.fillStyle = darkMode ? '#bae6fd' : '#888';
       let max = Math.max(1, ...vals);
       for (let i=0;i<=max;++i) {
         ctx.fillText(i,8,180-i*160/max+3);
@@ -1385,13 +1397,15 @@
       let n = labels.length;
       if (n<1) return;
       for (let i=0;i<n;++i) {
-        ctx.fillText(labels[i].slice(5), 50+i*240/(n-1), 195);
+        let x = n > 1 ? 50 + i * 240 / (n - 1) : 155;
+        ctx.fillText(labels[i].slice(5), x, 195);
       }
       // Line
       ctx.strokeStyle=color; ctx.lineWidth=2.5;
       ctx.beginPath();
       for (let i=0;i<n;++i) {
-        let x = 40+i*240/(n-1), y = 180-vals[i]*160/max;
+        let x = n > 1 ? 40 + i * 240 / (n - 1) : 40;
+        let y = 180 - vals[i] * 160 / max;
         if (i===0) ctx.moveTo(x,y);
         else ctx.lineTo(x,y);
         // dot
@@ -1427,7 +1441,7 @@
       for(let i=0;i<labels.length;++i) {
         ctx.fillStyle=colors[i%colors.length];
         ctx.fillRect(8,8+i*18,13,13);
-        ctx.fillStyle='#555';
+        ctx.fillStyle = darkMode ? '#bae6fd' : '#555';
         ctx.fillText(labels[i]+` (${vals[i]})`, 25,20+i*18);
       }
     }
@@ -1447,7 +1461,7 @@
     renderAll();
 
     // Re-render on tab switch
-    document.querySelectorAll('.nav button').forEach(btn=>{
+    document.querySelectorAll('.tab-nav button').forEach(btn=>{
       btn.addEventListener('click', renderAll);
     });
 
